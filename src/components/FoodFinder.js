@@ -7,7 +7,7 @@ export const FoodFinder = () => {
     return (
         <>
             <NavBar />
-            <h1>FoodFinder</h1>
+            <h1>Food Finder</h1>
             <ApplicationViews />
         </>
     )
