@@ -4,10 +4,15 @@ import { Route } from "react-router-dom"
 
 export const ApplicationViews = () => {
     return (
-        <>
-            <h1>test</h1>
+        <> 
+           <h4>Welcome to Forbidden Food Finder
+where you can sort through your friendʼs and
+familyʼs dietary needs.</h4>
+           
 
-            <button> button</button>
+            <button>Let's Get Started</button> 
+
+            <button>See Past Profile Pages</button>
         </>
     )
 }
