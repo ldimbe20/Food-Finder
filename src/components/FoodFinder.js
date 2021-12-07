@@ -6,15 +6,17 @@ import { Register } from "./auth/Register";
 import { Route, Redirect} from "react-router-dom"
 
 
+
 export const FoodFinder = () => (
     <>
       <Route
         render={() => {
-          if (localStorage.getItem("honey_customer")) {
+          if (localStorage.getItem("food_customer")) {
             return (
                 <>
                 <NavBar />
                 <h1>Food Finder</h1>
+                
                 <ApplicationViews />
             </>
             );

@@ -9,7 +9,7 @@ export const Login = () => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/customers?email=${email}`)
+        return fetch(`http://localhost:8088/users?email=${email}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     }
@@ -19,7 +19,7 @@ export const Login = () => {
         existingUserCheck()
             .then(exists => {
                 if (exists) {
-                    localStorage.setItem("foodfinder_customer", exists.id)
+                    localStorage.setItem("food_customer", exists.id)
                     history.push("/")
                 } else {
                     existDialog.current.showModal()
