@@ -18,7 +18,7 @@ export const NavBar = (props) => {
            
 
             <li className="navbar__item">
-                <Link className="navbar__link" to="/restrictions/create"> Food Restrictions </Link>
+                <Link className="navbar__link" to="/restrictions/create"> Food Restrictions Profiles </Link>
             </li> 
 
         </ul>
