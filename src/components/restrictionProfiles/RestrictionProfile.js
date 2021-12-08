@@ -1,9 +1,13 @@
-//this module is responsible for gathering information needed for form
+//this module is for displaying profiles
+
+//grab animal css for module
+
+
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
 
-export const UserProfiles = () => {
+export const UserRestrictionProfile = () => {
     const [foodRestriction, set] = useState({})  // State variable for current foodRestriction object
     const { foodRestrictionId } = useParams()  // Variable storing the route parameter// look where FoodRestriction is invoked for commented code 
 
@@ -21,8 +25,9 @@ export const UserProfiles = () => {
 
     return (
         <>
+        <h4>Here are a list of profiles</h4>
             <section className="foodRestriction">
-                <h3 className="foodRestriction__name">{foodRestriction.name} || "unknown"</h3>
+                <h3 className="foodRestriction__name">{foodRestriction.name} || "List of profiles will display here"</h3>
                 
             </section>
         </>
