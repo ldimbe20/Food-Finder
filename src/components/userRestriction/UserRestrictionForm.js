@@ -4,10 +4,23 @@ import { useHistory } from "react-router-dom"
 
 export const UserRestrictionForm = () => {
 
-    const [foodRestriction, setFoodRestriction] = useState({
+    const [foodRestriction, setManualFoodeRestrictions] = useState({
         name: "",
         manuallyAdded: true,
     })
+
+    const [autoFoodRestriction, setAutoFoodRestriction] = useState([])
+
+    useEffect(
+        () => {
+            fetch("http://localhost:8088/foodRestrictions?manuallyAdded=false")
+                .then(response => response.json())
+                .then((foodRestrictionArray) => {
+                    setAutoFoodRestriction(foodRestrictionArray)
+                })
+            },
+           [] 
+        )
 
     const history = useHistory() //creating a variable that equals the return of useHistory
 
@@ -15,7 +28,7 @@ export const UserRestrictionForm = () => {
 
     const saveFoodRestriction = (evt) => {  //this function is using the state, useState, to create an object to store to API
         evt.preventDefault()
-        
+
 
         const fetchOption = {
             method: "POST", //posting to the API using POst method
@@ -52,11 +65,33 @@ export const UserRestrictionForm = () => {
                             (evt) => {
                                 const copy = { ...foodRestriction }     //using object spread operator to copy the initual state
                                 copy.name = evt.target.value  //making the new description = the value of someone typing into the description field
-                                setFoodRestriction(copy)
+                                setManualFoodeRestrictions(copy)
                             }
                         } />
                     {/* above isnow that copy is updated with new data it will take that copy to update from useState hook */}
                 </div>
+            </fieldset>
+
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="AutoFoodName">Pick From Common Allergies</label>
+                    <select radio="AutoFoodAllergies" id="selectFromAllergies" className="form-control">{
+                        // createCheckboxes = () => (
+                        //     autoFoodRestriction.map(this.createCheckbox)
+                        // )
+                        autoFoodRestriction.map(
+                            (autoFoodRestriction) => {
+                                return <li key ="{autoFoodRestriction}">
+                                    <input type="radio" name="autoFoodRestriction" value="{autoFoodRestriction.id}" /> {autoFoodRestriction.name}
+                                </li>
+                            }
+                        )
+                         
+                    }   //!Above is not being displayed need to do check boxes so multiple items can be picked
+                    </select>
+                </div>
+
+
             </fieldset>
 
             <button className="btn btn-primary" onClick={(evt) => saveFoodRestriction(evt)}>
@@ -65,5 +100,11 @@ export const UserRestrictionForm = () => {
         </form>
     )
 }
+
+
+
+
+
+
 
 
