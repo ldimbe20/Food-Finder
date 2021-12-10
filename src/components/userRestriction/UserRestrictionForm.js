@@ -58,24 +58,6 @@ export const UserRestrictionForm = () => {
                 
             })
 
-
-
-
-        // const fetchOption2 = {
-        //     method: "POST", //posting to the API using POst method
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(foodRestriction) // sending the body of the object new ticket, can't send javascript so need to stringify 
-        // }
-
-
-        // return fetch("http://localhost:8088/foodRestrictions", fetchOption2)
-        //     .then(response => response.json())
-        //     .then(() => {
-        //         history.push("/foodRestriction")
-        //     })
-
     }
 
 
