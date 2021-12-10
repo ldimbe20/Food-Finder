@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 
 
 
-export const UserRestrictionForm = () => {
+export const RestrictionForm = () => {
     const history = useHistory()
     const [profileName, setProfileName] = useState({
         name: "",
@@ -68,7 +68,7 @@ export const UserRestrictionForm = () => {
                             return fetch("http://localhost:8088/userRestrictions", fetchOption(userRestrictions))
                         })
                         .then((data) => {
-                            history.push("/")  
+                            history.push("/profileList")  
                         })       
                 }
                 else if (!foodRestriction.name) {
@@ -82,7 +82,7 @@ export const UserRestrictionForm = () => {
                             return fetch("http://localhost:8088/userRestrictions", fetchOption(userRestrictions))
                         })
                         .then((data) => {
-                            history.push("/")  
+                            history.push("/profileList")  
                         })       
                 }
                
@@ -153,7 +153,6 @@ export const UserRestrictionForm = () => {
                                             }} /> {autoFoodRestriction.name}
                                 </div>
 
-                               //!Reference kennels to change autoFoodRestriction into map
                             }
                         )
                     }
@@ -169,7 +168,6 @@ export const UserRestrictionForm = () => {
         </form>
     )
 }
-
 
 
 
