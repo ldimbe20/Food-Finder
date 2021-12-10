@@ -1,8 +1,8 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { useHistory } from "react-router-dom"
-import { UserRestrictionProfile } from "./userRestriction/UserRestriction"
-import { UserRestrictionForm } from "./userRestriction/UserRestrictionForm"
+import { UserRestrictionProfile } from "./Restriction/Restriction"
+import { UserRestrictionForm } from "./Restriction/RestrictionForm"
 
 
 

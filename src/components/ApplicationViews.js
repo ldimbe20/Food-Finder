@@ -1,10 +1,9 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { useHistory } from "react-router-dom"
-import { Link, useParams } from "react-router-dom"
-import { UserRestrictionProfile } from "./userRestriction/UserRestriction"
-// import { UserRestrictionForm } from "./userRestriction/UserRestrictionForm"
-import { UserRestrictionForm } from "./userRestriction/refactorpractice"
+import { RestrictionForm } from "./Restriction/RestrictionForm"
+import { RestrictionProfile } from "./restrictionProfiles/RestrictionProfile"
+import { RestrictionProfileList} from "./restrictionProfiles/RestrictionProfileList"
 import { Welcome } from "./Welcome";
 // import {UserProfiles} from "./userProfiles/UserProfiles"
 
@@ -18,13 +17,18 @@ export const ApplicationViews = () => {
             </Route>
 
             <Route path="/restrictions/create">
-                <UserRestrictionForm />
+                <RestrictionForm />
             </Route>
             
-            <Route path="/restrictions/profiles">
-                <UserRestrictionProfile />
+            <Route path="/restrictions/:foodRestrictionsId(\d+)">  
+            {/* {} */}
+             <RestrictionProfile />
             </Route>
-           
+
+            <Route path="/profileList">  
+            {/* {} */}
+             <RestrictionProfileList />
+            </Route>
           
             
         </>
