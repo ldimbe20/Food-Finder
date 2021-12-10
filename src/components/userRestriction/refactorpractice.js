@@ -14,8 +14,16 @@ export const UserRestrictionForm = () => {
         name: "",
         manuallyAdded: true,
     })
+    
 
-    const [autoFoodRestriction, setAutoFoodRestriction] = useState([])
+    const [autoFoodRestrictionArray, setAutoFoodRestrictionArray] = useState([])
+
+    
+
+    const [autoFoodRestriction, setAutoFoodRestriction] = useState([{
+        name: "",
+        manuallyAdded: true,
+    }])
 
 
     useEffect(
@@ -23,11 +31,15 @@ export const UserRestrictionForm = () => {
             fetch("http://localhost:8088/foodRestrictions?manuallyAdded=false")
                 .then(response => response.json())
                 .then((foodRestrictionArray) => {
-                    setAutoFoodRestriction(foodRestrictionArray)
+                    setAutoFoodRestrictionArray(foodRestrictionArray)
                 })
         },
         []
     )
+
+    //! want to grab just the array of autoFoods-
+    //! also want to post the state of autofoods
+
 
     const saveFoodRestriction = (evt) => {
         evt.preventDefault()
@@ -48,33 +60,35 @@ export const UserRestrictionForm = () => {
                 if (foodRestriction.name) {
                     return fetch("http://localhost:8088/foodRestrictions", fetchOption(foodRestriction)) //this is invoking the fetchOption function with foodrestriction variable
                         .then(response => response.json())
-                        .then((data) => { 
-                            const userRestrictions={
+                        .then((data) => {
+                            const userRestrictions = {
                                 restrictionsProfileId: storedResponse.id,
                                 foodRestrictionId: data.id
                             }
                             return fetch("http://localhost:8088/userRestrictions", fetchOption(userRestrictions))
-                        })}
+                        })
+                        .then((data) => {
+                            history.push("/")  
+                        })       
+                }
+                else if (!foodRestriction.name) {
+                    return fetch("http://localhost:8088/foodRestrictions", fetchOption(foodRestriction)) //this is invoking the fetchOption function with foodrestriction variable
+                        .then(response => response.json())
+                        .then((data) => {
+                            const userRestrictions = {
+                                restrictionsProfileId: storedResponse.id,
+                                foodRestrictionId: data.id
+                            }
+                            return fetch("http://localhost:8088/userRestrictions", fetchOption(userRestrictions))
+                        })
+                        .then((data) => {
+                            history.push("/")  
+                        })       
+                }
+               
+
                 
             })
-
-
-
-
-        // const fetchOption2 = {
-        //     method: "POST", //posting to the API using POst method
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(foodRestriction) // sending the body of the object new ticket, can't send javascript so need to stringify 
-        // }
-
-
-        // return fetch("http://localhost:8088/foodRestrictions", fetchOption2)
-        //     .then(response => response.json())
-        //     .then(() => {
-        //         history.push("/foodRestriction")
-        //     })
 
     }
 
@@ -126,15 +140,22 @@ export const UserRestrictionForm = () => {
                 <div className="form-group">
                     <label htmlFor="AutoFoodName">Pick From Common Allergies</label>
                     <div id="selectFromAllergies" className="form-control">{ //flex to put side by side
-                        autoFoodRestriction.map(
+                        autoFoodRestrictionArray.map(
                             (autoFoodRestriction) => {
                                 return <div key="{autoFoodRestriction}">
-                                    <input type="checkbox" name="autoFoodRestriction" value="{autoFoodRestriction.id}" /> {autoFoodRestriction.name}
-                                </div>  
-                                //create onchange here that records state and then mimic what Sherwin taught you
+                                    <input type="checkbox" name="autoFoodRestriction" value="{autoFoodRestriction.id}"
+                                        onChange={
+                                            (evt) => {
+                                                const copy = { ...autoFoodRestriction }     //using object spread operator to copy the initual state
+                                                copy.name = evt.target.checked  //making the new description = the value of someone checking box
+                                                setAutoFoodRestriction(copy)
+
+                                            }} /> {autoFoodRestriction.name}
+                                </div>
+
+                               //!Reference kennels to change autoFoodRestriction into map
                             }
                         )
-
                     }
                     </div>
                 </div>
