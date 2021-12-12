@@ -25,6 +25,12 @@ export const RestrictionForm = () => {
         manuallyAdded: true,
     }])
 
+     // selectedAutoFoodRestrictions = {
+    //     autofoodRestriction: null,
+    //     checked: false
+    // }
+
+
 
     useEffect(
         () => {
@@ -32,6 +38,17 @@ export const RestrictionForm = () => {
                 .then(response => response.json())
                 .then((foodRestrictionArray) => {
                     setAutoFoodRestrictionArray(foodRestrictionArray)
+                     // foodRestrictionArray.map( //mapping through food restrictions and for each food restriction creating an autofoodRestriction that has checkbox
+                    //     (foodRestriction) => {
+                    //         const autoFoodRestriction = {
+                    //             id: foodRestriction.id,
+                    //             name: foodRestriction.name,
+                    //             manuallyAdded: false,
+                    //             checked: false
+                    //         }
+                    //         setAutoFoodRestrictionArray(autoFoodRestrictionArray.concat(autoFoodRestriction))
+                    //     }    //concat is creating a new array and setting it to setAutoFoodRestriction array
+                    // )
                 })
         },
         []
@@ -54,40 +71,24 @@ export const RestrictionForm = () => {
         }
 
 
-        return fetch("http://localhost:8088/restrictionProfiles", fetchOption(profileName)) //fetchOption is a function on line 34 which post parameter (profileName) to api
+        return fetch("http://localhost:8088/restrictionsProfiles", fetchOption(profileName)) //fetchOption is a function on line 34 which post parameter (profileName) to api
             .then(response => response.json())//the response,which is profile name value, is gathered and turned to javascript
             .then((storedResponse) => { //the response is then converted to storedResponse
-                if (foodRestriction.name) {
-                    return fetch("http://localhost:8088/foodRestrictions", fetchOption(foodRestriction)) //this is invoking the fetchOption function with foodrestriction variable
-                        .then(response => response.json())
-                        .then((data) => {
-                            const userRestrictions = {
-                                restrictionsProfileId: storedResponse.id,
-                                foodRestrictionId: data.id
-                            }
-                            return fetch("http://localhost:8088/userRestrictions", fetchOption(userRestrictions))
-                        })
-                        .then((data) => {
-                            history.push("/profileList")  
-                        })       
-                }
-                else if (!foodRestriction.name) {
-                    return fetch("http://localhost:8088/foodRestrictions", fetchOption(foodRestriction)) //this is invoking the fetchOption function with foodrestriction variable
-                        .then(response => response.json())
-                        .then((data) => {
-                            const userRestrictions = {
-                                restrictionsProfileId: storedResponse.id,
-                                foodRestrictionId: data.id
-                            }
-                            return fetch("http://localhost:8088/userRestrictions", fetchOption(userRestrictions))
-                        })
-                        .then((data) => {
-                            history.push("/profileList")  
-                        })       
-                }
-               
 
-                
+                return fetch("http://localhost:8088/foodRestrictions", fetchOption(foodRestriction)) //this is invoking the fetchOption function with foodrestriction variable
+                    .then(response => response.json())
+                    .then((data) => {
+                                const userRestrictions = {
+                                    restrictionsProfileId: storedResponse.id,
+                                    foodRestrictionId: data.id
+                                }
+                                return fetch("http://localhost:8088/userRestrictions", fetchOption(userRestrictions))
+                            })
+                            .then((data) => {
+                                history.push("/profileList")
+               
+                    })
+
             })
 
     }
@@ -168,7 +169,6 @@ export const RestrictionForm = () => {
         </form>
     )
 }
-
 
 
 

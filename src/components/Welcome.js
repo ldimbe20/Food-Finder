@@ -27,6 +27,14 @@ export const Welcome = () => {
                             </button>
                     </div>
 
+                    <div className="centerChildren btn--newResource">
+                            <button type="button"
+                                className="btn btn-success "
+                                onClick={() => { history.push("/profileList") }}>
+                                See Profiles
+                            </button>
+                    </div>
+
      
             
         </>

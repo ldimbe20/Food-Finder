@@ -15,7 +15,7 @@ export const RestrictionProfileList = () => {
     ) //invoking getTickets 
 
     const getProfiles = () => {  //this function is used to replace data information after ticket has been deleted
-        return fetch("http://localhost:8088/userRestrictions?_expand=foodRestriction")
+        return fetch("http://localhost:8088/userRestrictions?_expand=restrictionsProfile&_expand=foodRestriction")
             .then(res => res.json())
             .then((data) => {
                 setProfiles(data)
@@ -43,7 +43,7 @@ export const RestrictionProfileList = () => {
                     (profile) => {
                         return <div key={`profile--${profile.id}`}>
                                 {/* above states if className is emergency is profile.emergy is true and is profile if profile.emergency is false */}
-                                <p> This should be their name {profile.foodRestriction.name} 
+                                <p> This should be their name {profile.restrictionsProfile.name} 
                                 </p>
                                 
                                 <p> Doesn't Like {profile.foodRestriction.name} 
