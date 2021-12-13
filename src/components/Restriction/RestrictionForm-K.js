@@ -10,13 +10,13 @@ export const RestrictionForm = () => {
         userId: parseInt(localStorage.getItem("food_customer"))
     })
 
-    const [typedFoodRestriction, setTypedFoodRestrictions] = useState({
+    const [manualFoodRestriction, setManualFoodRestrictions] = useState({
         name: "",
         manuallyAdded: true,
     })
     
 
-    const [checkedFoodRestriction, setCheckedFoodRestriction] = useState([])
+    const [autoFoodCheckboxArray, setAutoFoodCheckboxArray] = useState([])
 
     
 
@@ -34,29 +34,25 @@ export const RestrictionForm = () => {
 
     useEffect(
         () => {
-            fetch("http://localhost:8088/foodRestrictions?manuallyAdded=false")
-                .then(response => response.json())
+            fetch("http://localhost:8088/foodRestrictions?manuallyAdded=false") //going through foodRestrictions manually added data
+                .then(response => response.json()) //grabbing the data and creating new variable response turning to json 
                 .then((foodRestrictionArray) => {
-                    setCheckedFoodRestriction(foodRestrictionArray)
-                     // foodRestrictionArray.map( //mapping through food restrictions and for each food restriction creating an autofoodRestriction that has checkbox
-                    //     (foodRestriction) => {
-                    //         const autoFoodRestriction = {
-                    //             id: foodRestriction.id,
-                    //             name: foodRestriction.name,
-                    //             manuallyAdded: false,
-                    //             checked: false
-                    //         }
-                    //         setCheckedFoodRestriction(checkedFoodRestriction.concat(autoFoodRestriction))
-                    //     }    //concat is creating a new array and setting it to setAutoFoodRestriction array
-                    // )
-                })
+                    // setAutoFoodCheckboxArray([])
+                    foodRestrictionArray.map(
+                        (autoFoodRestriction) => { 
+                            const checkedFoodRestriction = {
+                                foodRestriction:  autoFoodRestriction,
+                                checked: false
+                            } 
+                            setAutoFoodCheckboxArray(autoFoodCheckboxArray.concat(checkedFoodRestriction)) //setting array to what it was plus the new food restirction value 
+                        })   
+                     // creating a food restrictions arrray with collected data
+                    // setAutoFoodCheckboxArray(foodRestrictionArray) //taking that data and sending to autoFoodRestriction array
+                 }) 
+                
         },
         []
     )
-
-    //! want to grab just the array of autoFoods-
-    //! also want to post the state of autofoods
-
 
     const saveFoodRestriction = (evt) => {
         evt.preventDefault()
@@ -75,7 +71,7 @@ export const RestrictionForm = () => {
             .then(response => response.json())//the response,which is profile name value, is gathered and turned to javascript
             .then((storedResponse) => { //the response is then converted to storedResponse
 
-                return fetch("http://localhost:8088/foodRestrictions", fetchOption(typedFoodRestriction)) //this is invoking the fetchOption function with foodrestriction variable
+                return fetch("http://localhost:8088/foodRestrictions", fetchOption(manualFoodRestriction)) //this is invoking the fetchOption function with foodrestriction variable
                     .then(response => response.json())
                     .then((data) => {
                                 const userRestrictions = {
@@ -121,7 +117,7 @@ export const RestrictionForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="typedFoodName">Manual Food Name:</label>
+                    <label htmlFor="manualFoodName">Manual Food Name:</label>
                     <input
                         required autoFocus
                         type="text"
@@ -129,9 +125,9 @@ export const RestrictionForm = () => {
                         placeholder="List food that person doesn't like here"
                         onChange={ //onChange is like an event listener that listens for a change and records it- we are listening for the change in description here
                             (evt) => {
-                                const copy = { ...typedFoodRestriction }     //using object spread operator to copy the initual state
+                                const copy = { ...manualFoodRestriction }     //using object spread operator to copy the initual state
                                 copy.name = evt.target.value  //making the new description = the value of someone typing into the description field
-                                setTypedFoodRestrictions(copy)
+                                setManualFoodRestrictions(copy)
                             }
                         } />
                 </div>
@@ -141,17 +137,16 @@ export const RestrictionForm = () => {
                 <div className="form-group">
                     <label htmlFor="AutoFoodName">Pick From Common Allergies</label>
                     <div id="selectFromAllergies" className="form-control">{ //flex to put side by side
-                        checkedFoodRestriction.map(
-                            (autoFoodRestriction) => {
-                                return <div key="{autoFoodRestriction}">
-                                    <input type="checkbox" name="autoFoodRestriction" value="{autoFoodRestriction.id}"
+                        autoFoodCheckboxArray.map(
+                            (checkedFoodRestriction) => {
+                                return <div key="{checkedFoodRestriction}">
+                                    <input type="checkbox" name="{checkedFoodRestriction.foodRestriction.name}" value="false" 
                                         onChange={
                                             (evt) => {
-                                                const copy = { ...autoFoodRestriction }     //using object spread operator to copy the initual state
-                                                copy.name = evt.target.checked  //making the new description = the value of someone checking box
-                                                setAutoFoodRestriction(copy)
-
-                                            }} /> {autoFoodRestriction.name}
+                                                checkedFoodRestriction.checked = evt.target.value 
+                                                
+                                            }} /> 
+                                            {checkedFoodRestriction.foodRestriction.name}
                                 </div>
 
                             }
@@ -169,6 +164,7 @@ export const RestrictionForm = () => {
         </form>
     )
 }
+
 
 
 
