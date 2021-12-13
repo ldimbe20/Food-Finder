@@ -49,7 +49,7 @@ export const RestrictionProfileList = () => {
                                 <p> Doesn't Like {profile.foodRestriction.name} 
                                 </p>
 
-                                <p> they are allergic to {profile.foodRestriction.name} 
+                                <p> PLACE HOLDER
                                 </p>
                                 <button onClick={() => {
                                     deleteProfile(profile.id)  // taking the argument of ticket.id and mapping through ticket array to find correct id number to delete
