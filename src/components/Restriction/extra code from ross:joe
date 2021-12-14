@@ -10,22 +10,28 @@ export const RestrictionForm = () => {
         userId: parseInt(localStorage.getItem("food_customer"))
     })
 
-    const [manualFood, setManualFood] = useState({
+    const [typedFoodRestriction, setTypedFoodRestrictions] = useState({
         name: "",
         manuallyAdded: true,
     })
     
 
-    const [checkedFoodArray, setCheckedFoodArray] = useState([]) //this is array so you can iterate through checkbox options
+    const [checkFoodRestrictionArray, setCheckFoodRestrictionArray] = useState([])
 
-    const [checkedFoodIdArray, setCheckedFoodIdArray] = useState([]) //this is an array that records when user checks on a checkbox
+    const [checkFoodRestrictionIdArray, setCheckFoodRestrictionIdArray] = useState([])
 
-    const [checkedFood, setCheckedFood] = useState({ //this is the setCheckFood object
+    
+
+    const [autoFoodRestriction, setAutoFoodRestriction] = useState([{
         name: "",
-        manuallyAdded: false,
-    })
-   
-   
+        manuallyAdded: true,
+    }])
+
+     // selectedAutoFoodRestrictions = {
+    //     autofoodRestriction: null,
+    //     checked: false
+    // }
+
 
 
     useEffect(
@@ -33,17 +39,17 @@ export const RestrictionForm = () => {
             fetch("http://localhost:8088/foodRestrictions?manuallyAdded=false")
                 .then(response => response.json())
                 .then((foodRestrictionArray) => {
-                    setCheckedFoodArray(foodRestrictionArray)
-                     // foodRestrictionArray.map( //mapping through food restrictions and for each food restriction creating an checkedFood that has checkbox
+                    setCheckFoodRestrictionArray(foodRestrictionArray)
+                     // foodRestrictionArray.map( //mapping through food restrictions and for each food restriction creating an autofoodRestriction that has checkbox
                     //     (foodRestriction) => {
-                    //         const checkedFood = {
+                    //         const autoFoodRestriction = {
                     //             id: foodRestriction.id,
                     //             name: foodRestriction.name,
                     //             manuallyAdded: false,
                     //             checked: false
                     //         }
-                    //         setCheckedFoodArray(checkedFoodArray.concat(checkedFood))
-                    //     }    //concat is creating a new array and setting it to setCheckedFood array
+                    //         setCheckFoodRestrictionArray(checkFoodRestrictionArray.concat(autoFoodRestriction))
+                    //     }    //concat is creating a new array and setting it to setAutoFoodRestriction array
                     // )
                 })
         },
@@ -71,7 +77,7 @@ export const RestrictionForm = () => {
             .then(response => response.json())//the response,which is profile name value, is gathered and turned to javascript
             .then((storedResponse) => { //the response is then converted to storedResponse
 
-                return fetch("http://localhost:8088/foodRestrictions", fetchOption(manualFood)) //this is invoking the fetchOption function with foodrestriction variable
+                return fetch("http://localhost:8088/foodRestrictions", fetchOption(typedFoodRestriction)) //this is invoking the fetchOption function with foodrestriction variable
                     .then(response => response.json())
                     .then((data) => {
                                 const userRestrictions = {
@@ -125,9 +131,9 @@ export const RestrictionForm = () => {
                         placeholder="List food that person doesn't like here"
                         onChange={ //onChange is like an event listener that listens for a change and records it- we are listening for the change in description here
                             (evt) => {
-                                const copy = { ...manualFood }     //using object spread operator to copy the initual state
+                                const copy = { ...typedFoodRestriction }     //using object spread operator to copy the initual state
                                 copy.name = evt.target.value  //making the new description = the value of someone typing into the description field
-                                setManualFood(copy)
+                                setTypedFoodRestrictions(copy)
                             }
                         } />
                 </div>
@@ -136,42 +142,49 @@ export const RestrictionForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="AutoFoodName">Pick From Common Allergies</label>
-                    <div id="selectFromAllergies" className="form-control">
-                        {checkedFoodArray.map(
-                            (checkedFood) => {
-                                return <div key="{checkedFood}">
-                                    <input type="checkbox" name="checkedFoodIdArray" value={checkedFoodIdArray}
+                    <div id="selectFromAllergies" className="form-control">{ //flex to put side by side
+                        checkFoodRestrictionArray.map(
+                            (autoFoodRestriction) => {
+                                return <div key="{autoFoodRestriction}">
+                                    <input type="checkbox" name="autoFoodRestriction" value="{autoFoodRestriction.id}"
                                         onChange={
                                             (evt) => {
-                                                const copy = { ...checkedFood }     //using object spread operator to copy the initual state
-                                                copy.name = checkedFood.name
-                                                const checkedFoodArray = checkedFoodIdArray.push(checkedFood)
-                                                setCheckedFood(copy)     
+                                                //! neeed to create an array that pushes ids that are checked to it
+                                                const copy = { ...autoFoodRestriction }     //using object spread operator to copy the initual state
+                                                copy.name = autoFoodRestriction.name  //making the new description = the value of someone checking box
+                                                setAutoFoodRestriction(copy)
 
-                                            }
 
-                                            // (evt) => {
-                                            //     //! neeed to create an array that pushes ids that are checked to it
-                                            //     const copy = { ...checkedFood }     //using object spread operator to copy the initual state
-                                            //     copy.name = checkedFood.name  //making the new description = the value of someone checking box
-                                            //     if (evt.target.checked) {
-                                            //         checkedFoodIdArray.map(
-                                            //             (checkedFoodId) => {
-                                            //              if (checkedFoodId.id === copy.id){
-                                            //              return ""}
-                                            //     else { 
-                                            //         checkedFoodIdArray.push(checkedFood)
-                                            //           }
-                                            //         }                                             
-                                            //     )}
-                                            //     setCheckedFood(checkedFood)
-                                            
-                                            // }
-                                                   
-                                        } /> {checkedFood.name}
-                                </div> 
-                            })
-                        }
+
+
+
+
+                                                //  return <div key="{checkedFoodRestriction}">
+//                                     <input type="checkbox" name="checkedFoodRestriction" value={checkedFoodRestriction.id} 
+//                                         onChange={
+//                                             (evt) => {
+//                                                 const copy = { ...checkedFoodRestriction } 
+
+//                                                  if (evt.target.checked) {
+                                                     
+//                                                  }
+                                        
+
+//                                                 setCheckedFoodRestriction(copy)
+
+//                                             }} /> {checkedFoodRestriction.name}
+//                                 </div>
+
+//                             }
+
+                                                
+
+                                            }} /> {autoFoodRestriction.name}
+                                </div>
+
+                            }
+                        )
+                    }
                     </div>
                 </div>
 
@@ -184,3 +197,24 @@ export const RestrictionForm = () => {
         </form>
     )
 }
+
+CODE FROM JOE AND ROSS
+
+
+// (evt) => {
+                                            //     //! neeed to create an array that pushes ids that are checked to it
+                                            //     const copy = { ...checkFoodRestriction }     //using object spread operator to copy the initual state
+                                            //     copy.name = checkFoodRestriction.name  //making the new description = the value of someone checking box
+                                            //     if (evt.target.checked) {
+                                            //         checkFoodRestrictionIdArray.map(
+                                            //             (checkFoodRestrictionId) => {
+                                            //              if (checkFoodRestrictionId.id === copy.id){
+                                            //              return ""}
+                                            //     else { 
+                                            //         checkFoodRestrictionIdArray.push(checkFoodRestriction)
+                                            //           }
+                                            //         }                                             
+                                            //     )}
+                                            //     setCheckFoodRestriction(checkFoodRestriction)
+                                            
+                                            // }
