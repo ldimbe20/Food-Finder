@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 
 
 
-export const RestrictionForm = () => {
+export const RestrictionForm = () => {   //restrictionForm is a component
     const history = useHistory()
     const [profileName, setProfileName] = useState({
         name: "",
@@ -16,16 +16,26 @@ export const RestrictionForm = () => {
     })
     
 
-    const [checkedFoodArray, setCheckedFoodArray] = useState([]) //this is array so you can iterate through checkbox options
+    const [foodArray, setFoodArray] = useState([]) //this is array to iterate through checkbox options
 
-    const [checkedFoodIdArray, setCheckedFoodIdArray] = useState([]) //this is an array that records when user checks on a checkbox
+    // const [food, setFood] = useState({  //need to make a fetch call to declare food
+    //     name: "",
+    //     manuallyAdded: true,
+    // })    //useState to store checkFood object information
 
-    const [checkedFood, setCheckedFood] = useState({ //this is the setCheckFood object
-        name: "",
-        manuallyAdded: false,
+    const [choiceFood, setChoiceFood] = useState({ //useState to store the id of chosen checked food
+        chosenFood: new Set()
     })
-   
-   
+
+    const setChosenFood = (id) => {
+        // Does the set contain the id?
+        // Ternary statement
+     const copy = { ...choiceFood } 
+        copy.chosenFood.has(id)
+            ? copy.chosenFood.delete(id)  // Yes? Remove it
+            : copy.chosenFood.add(id)  
+            setChoiceFood(copy)   // No? Add it
+    }
 
 
     useEffect(
@@ -33,25 +43,13 @@ export const RestrictionForm = () => {
             fetch("http://localhost:8088/foodRestrictions?manuallyAdded=false")
                 .then(response => response.json())
                 .then((foodRestrictionArray) => {
-                    setCheckedFoodArray(foodRestrictionArray)
-                     // foodRestrictionArray.map( //mapping through food restrictions and for each food restriction creating an checkedFood that has checkbox
-                    //     (foodRestriction) => {
-                    //         const checkedFood = {
-                    //             id: foodRestriction.id,
-                    //             name: foodRestriction.name,
-                    //             manuallyAdded: false,
-                    //             checked: false
-                    //         }
-                    //         setCheckedFoodArray(checkedFoodArray.concat(checkedFood))
-                    //     }    //concat is creating a new array and setting it to setCheckedFood array
-                    // )
+                    setFoodArray(foodRestrictionArray)
                 })
         },
-        []
+        [] //grabbing data from useEffect for iteration of foodrestriction array
     )
 
-    //! want to grab just the array of autoFoods-
-    //! also want to post the state of autofoods
+    
 
 
     const saveFoodRestriction = (evt) => {
@@ -66,6 +64,7 @@ export const RestrictionForm = () => {
             }
         }
 
+    
 
         return fetch("http://localhost:8088/restrictionsProfiles", fetchOption(profileName)) //fetchOption is a function on line 34 which post parameter (profileName) to api
             .then(response => response.json())//the response,which is profile name value, is gathered and turned to javascript
@@ -137,38 +136,17 @@ export const RestrictionForm = () => {
                 <div className="form-group">
                     <label htmlFor="AutoFoodName">Pick From Common Allergies</label>
                     <div id="selectFromAllergies" className="form-control">
-                        {checkedFoodArray.map(
-                            (checkedFood) => {
-                                return <div key="{checkedFood}">
-                                    <input type="checkbox" name="checkedFoodIdArray" value={checkedFoodIdArray}
+                        {foodArray.map(
+                            (food) => {
+                                return <div key="{food}">
+                                    <input type="checkbox" name="foodArray" value={foodArray}
                                         onChange={
                                             (evt) => {
-                                                const copy = { ...checkedFood }     //using object spread operator to copy the initual state
-                                                copy.name = checkedFood.name
-                                                const checkedFoodArray = checkedFoodIdArray.push(checkedFood)
-                                                setCheckedFood(copy)     
+                                                setChosenFood(food.id)      
 
                                             }
-
-                                            // (evt) => {
-                                            //     //! neeed to create an array that pushes ids that are checked to it
-                                            //     const copy = { ...checkedFood }     //using object spread operator to copy the initual state
-                                            //     copy.name = checkedFood.name  //making the new description = the value of someone checking box
-                                            //     if (evt.target.checked) {
-                                            //         checkedFoodIdArray.map(
-                                            //             (checkedFoodId) => {
-                                            //              if (checkedFoodId.id === copy.id){
-                                            //              return ""}
-                                            //     else { 
-                                            //         checkedFoodIdArray.push(checkedFood)
-                                            //           }
-                                            //         }                                             
-                                            //     )}
-                                            //     setCheckedFood(checkedFood)
-                                            
-                                            // }
                                                    
-                                        } /> {checkedFood.name}
+                                        } /> {food.name}
                                 </div> 
                             })
                         }
