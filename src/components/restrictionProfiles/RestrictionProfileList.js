@@ -43,14 +43,15 @@ export const RestrictionProfileList = () => {
                     (profile) => {
                         return <div key={`profile--${profile.id}`}>
                                 {/* above states if className is emergency is profile.emergy is true and is profile if profile.emergency is false */}
-                                <p> This should be their name {profile.restrictionsProfile.name} 
-                                </p>
+                                <h4> {profile.restrictionsProfile.name} 
+                                </h4>
                                 
-                                <p> Doesn't Like {profile.foodRestriction.name} 
-                                </p>
+                                <h4> Doesn't Like: {profile.foodRestriction.name} 
+                                </h4>
 
-                                <p> PLACE HOLDER
-                                </p>
+                                <i> PLACE HOLDER for checkboxed foods
+                                </i>
+                                <br />
                                 <button onClick={() => {
                                     deleteProfile(profile.id)  // taking the argument of ticket.id and mapping through ticket array to find correct id number to delete
                                 }}>Delete</button>
