@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 
-
+//!restrictionForm is a component
 
 export const RestrictionForm = () => {   //restrictionForm is a component
     const history = useHistory()
+
+
     const [friendName, setFriendName] = useState({
         name: "",
         userId: parseInt(localStorage.getItem("food_customer"))
@@ -14,7 +16,7 @@ export const RestrictionForm = () => {   //restrictionForm is a component
         name: "",
         manuallyAdded: true,
     })
-    
+
 
     const [foodArray, setFoodArray] = useState([]) //this is array to iterate through checkbox options
 
@@ -30,26 +32,26 @@ export const RestrictionForm = () => {   //restrictionForm is a component
     const setChosenFood = (id) => {
         // Does the set contain the id?
         // Ternary statement
-     const copy = { ...choiceFood } 
+        const copy = { ...choiceFood }
         copy.chosenFood.has(id)
             ? copy.chosenFood.delete(id)  // Yes? Remove it
-            : copy.chosenFood.add(id)  
-            setChoiceFood(copy)   // No? Add it
+            : copy.chosenFood.add(id)
+        setChoiceFood(copy)   // No? Add it  //!is setChoiceFood invoking copy? what is this called?
     }
 
 
     useEffect(
         () => {
             fetch("http://localhost:8088/foodRestrictions?manuallyAdded=false")
-                .then(response => response.json())
+                .then(response => response.json())  //! what would you call the response
                 .then((foodRestrictionArray) => {
-                    setFoodArray(foodRestrictionArray)
+                    setFoodArray(foodRestrictionArray) //!is this invoking a setFoodArray
                 })
         },
         [] //grabbing data from useEffect for iteration of foodrestriction array
     )
 
-    
+
 
 
     const saveFoodRestriction = (evt) => {
@@ -64,26 +66,64 @@ export const RestrictionForm = () => {   //restrictionForm is a component
             }
         }
 
-    
+
 
         return fetch("http://localhost:8088/friends", fetchOption(friendName)) //fetchOption is a function on line 34 which post parameter (friendName) to api
             .then(response => response.json())//the response,which is profile name value, is gathered and turned to javascript
             .then((storedResponse) => { //the response is then converted to storedResponse
+  
+         //might need ternary to chcek if manual verses not if they did run this then if not 
 
                 return fetch("http://localhost:8088/foodRestrictions", fetchOption(manualFood)) //this is invoking the fetchOption function with foodrestriction variable
                     .then(response => response.json())
                     .then((data) => {
-                                const friendFoodRestrictions = {
-                                    friendId: storedResponse.id,
-                                    foodRestrictionId: data.id
-                                }
-                                return fetch("http://localhost:8088/friendFoodRestrictions", fetchOption(friendFoodRestrictions))
-                            })
-                            .then((data) => {
-                                history.push("/profileList")
-               
+                        const friendFoodRestrictions = {
+                            friendId: storedResponse.id,
+                            foodRestrictionId: data.id
+                        }
+                        return fetch("http://localhost:8088/friendFoodRestrictions", fetchOption(friendFoodRestrictions))
+                    })
+          
+          
+                    .then(() => {
+                        const fetchArray = []
+                        // fetchArray - new array for all promises 
+                        // posting each choice in the chosenfood set 
+                        choiceFood.chosenFood.forEach(  //for each foodChoiceId we are going to post the new friendFoodRestriction options
+                            (choiceFoodId) => {
+                                /// pushing a promise to fetchArray
+                                fetchArray.push(
+                                    fetch("http://localhost:8088/friendFoodRestrictions", { //sending this object to food restrictions
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/json"
+                                        },
+                                        body: JSON.stringify({
+                                            // choiceFoodId - Id in the new set() 
+                                            foodRestrictionId: choiceFoodId,
+                                            friendId: storedResponse.id
+                                        })
+                                    })
+                                )
+                                
+                                //! would I need a return fetch call or is fetch array promise good enough
+                                // This is where all the fetches (Promises) all run and resolve
+                                Promise.all(fetchArray)
+                                    .then(
+                                        () => {
+                                            // remove all choices
+                                            choiceFood.chosenFood.clear()
+                                        }
+                                    )
+                            }
+                        )
+                        // return fetch("http://localhost:8088/friendFoodRestrictions", fetchOption(friendFoodRestrictions))
                     })
 
+                .then((data) => {   //!why is this data never read
+                    history.push("/profileList")
+
+                }) 
             })
 
     }
@@ -142,12 +182,12 @@ export const RestrictionForm = () => {   //restrictionForm is a component
                                     <input type="checkbox" name="foodArray" value={foodArray}
                                         onChange={
                                             (evt) => {
-                                                setChosenFood(food.id)      
+                                                setChosenFood(food.id)
 
                                             }
-                                                   
+
                                         } /> {food.name}
-                                </div> 
+                                </div>
                             })
                         }
                     </div>
