@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 
-//!restrictionForm is a component
 
-export const NameForm = () => {   //restrictionForm is a component
+export const FriendForm = () => {   //restrictionForm is a component
     const history = useHistory()
 
 
@@ -31,7 +30,7 @@ export const NameForm = () => {   //restrictionForm is a component
             .then(response => response.json())//the response,which is profile name value, is gathered and turned to javascript
             .then((storedResponse) => { //the response is then converted to storedResponse
             })
-        .then((data) => {   //!why is this data never read
+        .then((data) => {   
                 history.push("/profileList")
         }) 
     }
