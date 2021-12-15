@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
 
-export const RestrictionProfile = () => {
+export const FriendProfile = () => {
     const [foodRestriction, set] = useState({})  // State variable for current foodRestriction object
     const { foodRestrictionId } = useParams()  // Variable storing the route parameter// look where FoodRestriction is invoked for commented code 
 

@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom"
 
 export const RestrictionForm = () => {   //restrictionForm is a component
     const history = useHistory()
-    const [profileName, setProfileName] = useState({
+    const [friendName, setFriendName] = useState({
         name: "",
         userId: parseInt(localStorage.getItem("food_customer"))
     })
@@ -66,18 +66,18 @@ export const RestrictionForm = () => {   //restrictionForm is a component
 
     
 
-        return fetch("http://localhost:8088/restrictionsProfiles", fetchOption(profileName)) //fetchOption is a function on line 34 which post parameter (profileName) to api
+        return fetch("http://localhost:8088/friends", fetchOption(friendName)) //fetchOption is a function on line 34 which post parameter (friendName) to api
             .then(response => response.json())//the response,which is profile name value, is gathered and turned to javascript
             .then((storedResponse) => { //the response is then converted to storedResponse
 
                 return fetch("http://localhost:8088/foodRestrictions", fetchOption(manualFood)) //this is invoking the fetchOption function with foodrestriction variable
                     .then(response => response.json())
                     .then((data) => {
-                                const userRestrictions = {
-                                    restrictionsProfileId: storedResponse.id,
+                                const friendFoodRestrictions = {
+                                    friendId: storedResponse.id,
                                     foodRestrictionId: data.id
                                 }
-                                return fetch("http://localhost:8088/userRestrictions", fetchOption(userRestrictions))
+                                return fetch("http://localhost:8088/friendFoodRestrictions", fetchOption(friendFoodRestrictions))
                             })
                             .then((data) => {
                                 history.push("/profileList")
@@ -106,9 +106,9 @@ export const RestrictionForm = () => {   //restrictionForm is a component
                         placeholder="Friends Profile Name"
                         onChange={ //onChange is like an event listener that listens for a change and records it- we are listening for the change in description here
                             (evt) => {
-                                const copy = { ...profileName }     //using object spread operator to copy the initual state
+                                const copy = { ...friendName }     //using object spread operator to copy the initual state
                                 copy.name = evt.target.value  //making the new description = the value of someone typing into the description field
-                                setProfileName(copy)
+                                setFriendName(copy)
                             }
                         } />
                 </div>
