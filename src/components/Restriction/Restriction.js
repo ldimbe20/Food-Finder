@@ -9,7 +9,7 @@ export const RestrictionProfile = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/userRestrictions/${foodRestrictionsId}?_expand=restrictionProfiles&_expand=foodRestrictions`) //interpolated so the employeeId is recorded
+            fetch(`http://localhost:8088/friendFoodRestrictions/${foodRestrictionsId}?_expand=friends&_expand=foodRestrictions`) //interpolated so the employeeId is recorded
                 .then(res => res.json())
                 .then(setFoodRestrictions)
         },
@@ -22,7 +22,7 @@ export const RestrictionProfile = () => {
     return (
         <>
             <section className="friendsFoodRestrictions">
-                <h3 className="friendsFoodRestrictions__name">{foodRestrictions.foodRestrictionsId?.name}</h3>
+                <h3 className="friendsFoodRestrictions__name">{foodRestrictions.foodRestrictionId?.name}</h3>
                 <div className="friendsFoodRestrictions__specailties"> Display here: {foodRestrictions.id}</div>
             </section>
         </>

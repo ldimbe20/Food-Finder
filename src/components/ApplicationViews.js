@@ -2,10 +2,10 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import { RestrictionForm } from "./Restriction/RestrictionForm"
-import { RestrictionProfile } from "./restrictionProfiles/RestrictionProfile"
-import { RestrictionProfileList} from "./restrictionProfiles/RestrictionProfileList"
+import { FriendProfile } from "./friends/Friends"
+import { FriendProfileList} from "./friends/FriendsProfileList"
 import { Welcome } from "./Welcome";
-// import {UserProfiles} from "./userProfiles/UserProfiles"
+
 
 export const ApplicationViews = () => {
     const history = useHistory()
@@ -22,12 +22,12 @@ export const ApplicationViews = () => {
             
             <Route path="/restrictions/:foodRestrictionsId(\d+)">  
             {/* {} */}
-             <RestrictionProfile />
+             <FriendProfile />
             </Route>
 
             <Route path="/profileList">  
             {/* {} */}
-             <RestrictionProfileList />
+             <FriendProfileList />
             </Route>
           
             

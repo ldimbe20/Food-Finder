@@ -62,22 +62,3 @@ export const Login = () => {
 
 
 
-// //const fetchArray = []
-// choiceCheckedFood.chosenCheckedFood.forEach(
-//     (chosenCheckedFoodId) => {
-//         /// pushing a promise to fetchArray
-//         fetchArray.push(
-//             fetch("http://localhost:8088/userRestrictions", {
-//                 method: "POST",
-//                 headers: {
-//                     "Content-Type": "application/json"
-//                 },
-//                 body: JSON.stringify({
-//                     // chosentMaterialsId - Id in the new set() 
-//                     foodRestrictionId: chosenCheckedFoodId,
-//                     Id: work.id
-                    
-//                 })
-                
-//             })
-//         )
