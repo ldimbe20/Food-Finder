@@ -1,8 +1,3 @@
-//this module is for displaying profiles
-
-//grab animal css for module
-
-
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 

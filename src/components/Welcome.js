@@ -1,8 +1,8 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { useHistory } from "react-router-dom"
-import { friendsFoodRestrictionProfile } from "./Restriction/Restriction"
-import { friendsFoodRestrictionForm } from "./Restriction/RestrictionForm"
+import { friendsFoodRestrictionProfile } from "./Name/Restriction"
+import { friendsFoodRestrictionForm } from "./Name/NameForm"
 
 
 
