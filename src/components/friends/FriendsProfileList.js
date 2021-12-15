@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
+
 
 
 export const FriendProfileList = () => {
@@ -34,7 +35,7 @@ export const FriendProfileList = () => {
                                 <h4> {friend.name} 
                                 </h4>
                                 <button onClick={() => {
-                                }}>Add Food Restriction</button>
+                                }}><Link to={`/allergies`}>Add Allergy</Link></button>
                             </div>
                     }
                 )

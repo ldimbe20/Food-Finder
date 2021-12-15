@@ -1,12 +1,5 @@
 import React from "react"
-import { Route } from "react-router-dom"
 import { useHistory } from "react-router-dom"
-import { friendsFoodRestrictionProfile } from "./Name/Restriction"
-import { friendsFoodRestrictionForm } from "./Name/NameForm"
-
-
-
-
 
 export const Welcome = () => {
     const history = useHistory()
@@ -16,9 +9,7 @@ export const Welcome = () => {
          <h4>Welcome to Forbidden Food Finder
         where you can sort through your friendʼs and
         familyʼs dietary needs.</h4>
-           
-
-            
+ 
                      <div className="centerChildren btn--newResource">
                             <button type="button"
                                 className="btn btn-success "
@@ -34,9 +25,6 @@ export const Welcome = () => {
                                 See Profiles
                             </button>
                     </div>
-
-     
-            
         </>
     )
 }
