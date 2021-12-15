@@ -1,7 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { useHistory } from "react-router-dom"
-import { RestrictionForm } from "./Restriction/RestrictionForm"
+import { NameForm } from "./Name/NameForm"
 import { FriendProfile } from "./friends/Friends"
 import { FriendProfileList} from "./friends/FriendsProfileList"
 import { Welcome } from "./Welcome";
@@ -17,7 +17,7 @@ export const ApplicationViews = () => {
             </Route>
 
             <Route path="/restrictions/create">
-                <RestrictionForm />
+                <NameForm />
             </Route>
             
             <Route path="/restrictions/:foodRestrictionsId(\d+)">  
