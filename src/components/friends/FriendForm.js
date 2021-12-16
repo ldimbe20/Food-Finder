@@ -31,7 +31,7 @@ export const FriendForm = () => {   //restrictionForm is a component
             .then((storedResponse) => { //the response is then converted to storedResponse
             })
         .then((data) => {   
-                history.push("/profileList")
+                history.push("/allergies")
         }) 
     }
 
