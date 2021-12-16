@@ -6,22 +6,16 @@ export const AllergiesForm = () => {   //restrictionForm is a component
     const history = useHistory()
 
 
-    const [severity, setSeverity] = useState([
+    const [severity, setSeverity] = useState([   
     ]
     )
-
     const [severityId, setSeverityId] = useState ({
-        id: 1
+
     }
     )
-
-    const [friend, setFriend] = useState ({
-        id: 1
-    }
+    const [friends, setFriends] = useState ([
+    ]
     )
-
-
-
 
     const [foodRestrictionName, setfoodRestrictionName] = useState({
         description: ""
@@ -33,9 +27,11 @@ export const AllergiesForm = () => {   //restrictionForm is a component
         evt.preventDefault()
         const newAllergy = {  //creating an object to save 
             foodRestrictionName: foodRestrictionName.description,  //getting information form state 
-            friendId: 1,  //!trying to figure out how to transfer over information from previous form 
+            friendId: friends.pop().id,   
             severityId: parseInt(severityId.id)
         } //we want to send above object to API
+        
+        // const friendId = friends.pop() 
 
         const fetchOption = {
             method: "POST", //posting to the API using POst method
@@ -47,15 +43,15 @@ export const AllergiesForm = () => {   //restrictionForm is a component
 
         return fetch("http://localhost:8088/friendFoodRestrictions", fetchOption)
             .then(response => response.json())
-        //     .then (() => {
-        //         history.push("/foodRestrictionNames")  
-        // })
+            .then (() => {
+                history.push("ProfileList")  
+        })
 
     }
 
     useEffect( // a hook whose responsibility it is to react to change state
         () => {
-            fetch("http://localhost:8088/severity")
+            fetch("http://localhost:8088/severities")
                 .then(res => res.json())
                 .then((data) => {
                     setSeverity(data)
@@ -66,10 +62,10 @@ export const AllergiesForm = () => {   //restrictionForm is a component
 
     useEffect( // a hook whose responsibility it is to react to change state
         () => {
-            fetch("http://localhost:8088/friend")
+            fetch("http://localhost:8088/friends")
                 .then(res => res.json())
                 .then((data) => {
-                    setFriend(data)
+                    setFriends(data)
                 })
         },
         [] //
@@ -128,8 +124,6 @@ export const AllergiesForm = () => {   //restrictionForm is a component
                         }
                     </select>
                 </fieldset>
-
-
 
                 <button className="btn btn-primary" onClick={saveAllergy}>
                     Submit Food Restriction Name
