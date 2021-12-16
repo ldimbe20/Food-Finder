@@ -10,7 +10,7 @@ export const FriendForm = () => {   //restrictionForm is a component
         name: "",
         userId: parseInt(localStorage.getItem("food_customer"))
     })
-
+   
 
 
 
@@ -36,6 +36,7 @@ export const FriendForm = () => {   //restrictionForm is a component
     }
 
     return (
+        <>
         <form className="userRestrictionForm">
             <h2 className="userRestrictionForm__title">New Food Restriction Profile</h2>
 
@@ -61,5 +62,6 @@ export const FriendForm = () => {   //restrictionForm is a component
                 Save Profile
             </button>
         </form>
+     </>
     )
 }
