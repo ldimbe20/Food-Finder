@@ -1,16 +1,16 @@
 APPLICATION OVERVIEW:
-Everything is at a click of a button so why not be able to access your friend and family members food restrictions that way as well? 
-With Allergy Alert you can create profiles that store allergy information to be viewed when needed.
+Everything is at a click of a button so why not be able to access your friend and family members food allergies that way as well? 
+With Forbidden Food Finder you can create profiles that store allergy information to be viewed when needed.
 
 PRIMARY FEATURES:
 The user can register and login with an email and a password
 The user can create a friend/family members food profile
 The user can manually assign a food to a profile
 The user can assign a food severity level to a profile
-The user can DELETE  a profile on a page
+The user can delete a profile on a page
 
 TARGET AUDIENCE:
-The target audience is anyone who needs to keep track of someone with food allergies. This would be ideal for teachers, camp counselors, and parent who may prep food for large groups of people.
+The target audience is anyone who who needs to keep track of multiple people with food allergies. This would be ideal for teachers, camp counselors, and parents who may prep food for large groups of people.
 
 GETTING STARTED:
 
