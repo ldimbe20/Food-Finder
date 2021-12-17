@@ -1,5 +1,5 @@
 APPLICATION OVERVIEW:
-Everything is at a click of a button so why not be able to access your friend and family members food restrictions that way as well. 
+Everything is at a click of a button so why not be able to access your friend and family members food restrictions that way as well? 
 With Allergy Alert you can create profiles that store allergy information to be viewed when needed.
 
 PRIMARY FEATURES:
