@@ -5,13 +5,17 @@ import { useHistory } from "react-router-dom"
 export const AllergiesForm = () => {   //restrictionForm is a component
     const history = useHistory()
 
-    const [severity, setSeverity] = useState([
-    ])
-    const [severityId, setSeverityId] = useState({
-    })
-   
-    const [friends, setFriends] = useState([
-    ])
+
+    const [severity, setSeverity] = useState([   
+    ]
+    )
+    const [severityId, setSeverityId] = useState ({
+
+    }
+    )
+    const [friends, setFriends] = useState ([
+    ]
+    )
 
     const [foodRestrictionName, setfoodRestrictionName] = useState({
         description: ""
@@ -23,10 +27,10 @@ export const AllergiesForm = () => {   //restrictionForm is a component
         evt.preventDefault()
         const newAllergy = {  //creating an object to save 
             foodRestrictionName: foodRestrictionName.description,  //getting information form state 
-            friendId: friends.pop().id,
+            friendId: friends.pop().id,   
             severityId: parseInt(severityId.id)
         } //we want to send above object to API
-
+        
         // const friendId = friends.pop() 
 
         const fetchOption = {
@@ -39,9 +43,9 @@ export const AllergiesForm = () => {   //restrictionForm is a component
 
         return fetch("http://localhost:8088/friendFoodRestrictions", fetchOption)
             .then(response => response.json())
-            .then(() => {
-                history.push("ProfileList")
-            })
+            .then (() => {
+                history.push("ProfileList")  
+        })
 
     }
 
