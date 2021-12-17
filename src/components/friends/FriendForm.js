@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 
 
-export const FriendForm = () => {   //restrictionForm is a component
+export const FriendForm = () => {   //restrictionForm is a component to gather information for form
     const history = useHistory()
 
 
-    const [friendName, setFriendName] = useState({
-        name: "",
+    const [friendName, setFriendName] = useState({ //component whose job it is to set state of friendName
+        name: "", 
         userId: parseInt(localStorage.getItem("food_customer"))
     })
    
 
 
 
-    const saveName = (evt) => {
+    const saveName = (evt) => { //component that post datat based on argument
         evt.preventDefault()
         const fetchOption = (parameter) => {
             return {
@@ -31,7 +31,7 @@ export const FriendForm = () => {   //restrictionForm is a component
             .then((storedResponse) => { //the response is then converted to storedResponse
             })
         .then((data) => {   
-                history.push("/allergies")
+                history.push("/allergies") //routes back to path that is associated with allergies
         }) 
     }
 
