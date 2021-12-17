@@ -1,6 +1,5 @@
 /* Import the google web fonts you want to use */
-@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Raleway:ital,wght@0,400;1,200&display=swap');
 /*Typography
 --------------------------------------------------------------*/
 body,
@@ -15,7 +14,7 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Patua One", serif;
+  font-family: "Raleway", serif;
   letter-spacing: 2px;
 }
 

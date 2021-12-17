@@ -14,7 +14,7 @@ export const Welcome = () => {
                             <button type="button"
                                 className="btn btn-success "
                                 onClick={() => { history.push("/restrictions/create") }}>
-                                Let's Get Started
+                                Make A New Profile
                             </button>
                     </div>
 
