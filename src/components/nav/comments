@@ -16,20 +16,21 @@ export const FriendProfileList = () => {
         []
     ) 
 
-    const getFriendFoodRestriction = () => {  //!this componenent is used to set the state of setFriendNameList
-        return fetch("http://localhost:8088/friendFoodRestrictions?_expand=severity&_expand=friend")
-            .then(res => res.json())
-            .then((data) => {
-                setFriendFoodRestriction(data)  
+    const getFriendFoodRestriction = () => {  //!this componenent is used to set the state of friendFoodRestriction
+        return fetch("http://localhost:8088/friendFoodRestrictions?_expand=severity&_expand=friend") //gathering data from server
+            .then(res => res.json()) //changing the data to javascript
+            .then((data) => { //setting that data to data
+                setFriendFoodRestriction(data)  //invoking setFriendFoodRestriction to capture date and set new state of friendFoodRestriction
             })
     }
 
     const getFriendName = () => {  //!this componenent is used to set the state of setFriendNameList
-        return fetch("http://localhost:8088/friends") //gathering data from API
-            .then(res => res.json()) //converting to javascript
-            .then((data) => { //setting javascript to data
+        return fetch("http://localhost:8088/friends") //gathering data from api
+            .then(res => res.json())//converting data to javascript
+            .then((data) => { //setting javascript data to data
                 setFriendNameList(data)//invoking setFriendFoodRestriction to capture date and set new state of friendFoodRestriction
             })
+            }
     }
 
     useEffect( 
@@ -40,13 +41,13 @@ export const FriendProfileList = () => {
     ) 
 
     const deleteProfile = (id, friendId) => { //using friendId and id as arguments to be deleted 
-        fetch(`http://localhost:8088/friendFoodRestrictions/${id}`, { //gathering info from API
-            //from line line 52
+        fetch(`http://localhost:8088/friendFoodRestrictions/${id}`, {  //gathering data from api
+           
 
-            method: "DELETE" //deleting that info
+            method: "DELETE" //deleted that data
         })
             .then  
-                (() => { deleteFriend(friendId) })//then running deleteFriend function that deletes the friendId 
+                (() => { deleteFriend(friendId) }) //then running deleteFriend function that deletes the friendId 
             .then
             (() => { getFriendFoodRestriction() }) //replacing information after profile is deleted to reset data
     }      
@@ -55,20 +56,20 @@ export const FriendProfileList = () => {
     
     const deleteFriend = (id) => { //!this component deletes the friendId that is associated with the friendFoodRestrictionId
         fetch(`http://localhost:8088/friends/${id}`, { 
-            //from line line 52
+          
 
-            method: "DELETE"
+            method: "DELETE" //deleted that data
         })
     }
 
 
     const loggedIn = parseInt(localStorage.getItem("food_customer")) //! this component is a variable that equals the id of food_customer
-    return (
+    return ( //!this component returns the profile created by user
         <>
 
             {
                 friendFoodRestriction.map( //mapping through friendFoodRestrictions and returning a profile for each argument or friend
-                    (friend) => {//!this component returns the profile created by user
+                    (friend) => {
 
                         return <div key={`friendFoodRestriction--${friendFoodRestriction.id}`}>
                             {loggedIn === friend.friend.userId
@@ -77,7 +78,7 @@ export const FriendProfileList = () => {
                                     <p>is allergic to {friend.foodRestrictionName}</p>
                                     <p>The severity of their allergy is a level {friend?.severity?.level}</p>
                                     <button onClick={() => {
-                                        deleteProfile(friend.id, friend.friendId)  // taking the argument of ticket.id and mapping through ticket array to find correct id number to delete
+                                        deleteProfile(friend.id, friend.friendId)  
                                     }}>Delete</button>  </>
                                 : ""}
 
