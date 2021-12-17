@@ -5,40 +5,58 @@ import { Link } from "react-router-dom"
 
 
 export const FriendProfileList = () => {
-    const [friends, setFriends] = useState([])
+    const [friendFoodRestriction, setFriendFoodRestriction] = useState([])
+
+   
     
 
     useEffect( //instead of calling a fetch call to display change here we are invoking the getTickets function which does it for us 
         () => {
-            getFriends()
+            getFriendFoodRestriction()
         },
         []
     ) //invoking getTickets 
 
-    const getFriends = () => {  //this function is used to replace data information after ticket has been deleted
+    const getFriendFoodRestriction = () => {  //this function is used to replace data information after ticket has been deleted
         return fetch("http://localhost:8088/friendFoodRestrictions?_expand=severity&_expand=friend")
             .then(res => res.json())
             .then((data) => {
-                setFriends(data)
+                setFriendFoodRestriction(data)
             })
     }
 
+    const deleteFriend = (id) => { //in order to delete ticket you need to know what ticket to be deleted so you use id
+        //this matches what is interpolated on line 23
+        fetch(`http://localhost:8088/friendFoodRestrictions/${id}`, { 
+            //from line line 52
+
+            method: "DELETE"
+        })
+            .then
+            (() => { getFriendFoodRestriction() }) //replacing information after ticket entry is deleted
+    }
+
+
+    const loggedIn = parseInt(localStorage.getItem("food_customer"))
     return (
         <>
- 
+
             {
-                friends.map(
+                friendFoodRestriction.map(
                     (friend) => {
 
-                        <h1>THis is the friends profile list</h1>
-                        return <div key={`friend--${friend.id}`}>
-                                {/* above states if className is emergency is friend.emergy is true and is friend if friend.emergency is false */}
-                                <h4> {friend?.friend?.name} 
-                                </h4>
-                                <p>is allergic to {friend.foodRestrictionName}</p>
-                                <p>Her allergic reaction is {friend?.severity?.level}</p>
-                                
-                            </div>
+                        return <div key={`friendFoodRestriction--${friendFoodRestriction.id}`}>
+                            {loggedIn === friend.friend.userId
+                                ? <>
+                                    <h1> {friend?.friend?.name} </h1>
+                                    <p>is allergic to {friend.foodRestrictionName}</p>
+                                    <p>The severity of their allergy is a level {friend?.severity?.level}</p>
+                                    <button onClick={() => {
+                                        deleteFriend(friend.id)  // taking the argument of ticket.id and mapping through ticket array to find correct id number to delete
+                                    }}>Delete</button>  </>
+                                : ""}
+
+                        </div>
                     }
                 )
             }
