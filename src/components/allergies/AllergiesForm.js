@@ -4,22 +4,12 @@ import { useHistory } from "react-router-dom"
 
 export const AllergiesForm = () => {   //restrictionForm is a component
     const history = useHistory()
-
-
-    const [severity, setSeverity] = useState([   
-    ]
-    )
-    const [severityId, setSeverityId] = useState ({
-
-    }
-    )
-    const [friends, setFriends] = useState ([
-    ]
-    )
+    const [severity, setSeverity] = useState([])
+    const [severityId, setSeverityId] = useState ({})
+    const [friends, setFriends] = useState ([])
 
     const [foodRestrictionName, setfoodRestrictionName] = useState({
-        description: ""
-    })
+        description: ""})
 
 
 
@@ -94,31 +84,26 @@ export const AllergiesForm = () => {   //restrictionForm is a component
                                     setfoodRestrictionName(copy)
                                 }
                             } />
-                        {/* above isnow that copy is updated with new data it will take that copy to update from useState hook */}
+                        
                     </div>
                 </fieldset>
 
                 <fieldset>
                     Select Severity Level
-                    <select
-                        id="Severity--type"
-                        className="Severity--type"
-                        value={severityId}
+                    <select id="Severity--type" className="Severity--type"
                         onChange={
                             (evt) => {
                                 const copy = { ...severityId }  //when this is clicked you are making a copy of severityId
                                 copy.id = evt.target.value  //you are targeting the id of serverity because copy is mkaing a copy of severity and statin id
                                 setSeverityId(copy)
-                            }
-                        }
-                    >
-                        <option value="" label="Severity Level of Allergy"></option>
+                            }}>   
+                        <option value="0" label="Severity Level of Allergy"></option>
                         {
                             severity.map(
                                 (severityLevel) => {
                                     return <option value={severityLevel.id} key={`severityLevel--${severityLevel.id}`}>
-                                        {severityLevel.level}
-                                    </option>
+                                           {severityLevel.level}
+                                           </option>
                                 }
                             )
                         }
@@ -132,5 +117,3 @@ export const AllergiesForm = () => {   //restrictionForm is a component
         </>
     )
 }
-
-{/* // userId: parseInt(localStorage.getItem("food_customer")) */ }

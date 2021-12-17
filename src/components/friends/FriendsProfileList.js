@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { Link, useHistory } from "react-router-dom"
-
-
-
 
 export const FriendProfileList = () => {
     const [friendFoodRestriction, setFriendFoodRestriction] = useState([])
-    const [friendNameList, setFriendNameList] = useState([])
-    const history= useHistory()
+   
+    
 
     useEffect( 
         () => {
@@ -24,20 +20,6 @@ export const FriendProfileList = () => {
             })
     }
 
-    const getFriendName = () => {  //!this componenent is used to set the state of setFriendNameList
-        return fetch("http://localhost:8088/friends") //gathering data from API
-            .then(res => res.json()) //converting to javascript
-            .then((data) => { //setting javascript to data
-                setFriendNameList(data)//invoking setFriendFoodRestriction to capture date and set new state of friendFoodRestriction
-            })
-    }
-
-    useEffect( 
-        () => {
-            getFriendName()
-        },
-        []
-    ) 
 
     const deleteProfile = (id, friendId) => { //using friendId and id as arguments to be deleted 
         fetch(`http://localhost:8088/friendFoodRestrictions/${id}`, { //gathering info from API
