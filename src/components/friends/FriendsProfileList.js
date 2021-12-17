@@ -37,29 +37,3 @@ export const FriendProfileList = () => {
     }
 
 
-    const loggedIn = parseInt(localStorage.getItem("food_customer"))
-    return (
-        <>
-
-            {
-                friendFoodRestriction.map(
-                    (friend) => {
-
-                        return <div key={`friendFoodRestriction--${friendFoodRestriction.id}`}>
-                            {loggedIn === friend.friend.userId
-                                ? <>
-                                    <h1> {friend?.friend?.name} </h1>
-                                    <p>is allergic to {friend.foodRestrictionName}</p>
-                                    <p>The severity of their allergy is a level {friend?.severity?.level}</p>
-                                    <button onClick={() => {
-                                        deleteFriend(friend.id)  // taking the argument of ticket.id and mapping through ticket array to find correct id number to delete
-                                    }}>Delete</button>  </>
-                                : ""}
-
-                        </div>
-                    }
-                )
-            }
-        </>
-    )
-}
