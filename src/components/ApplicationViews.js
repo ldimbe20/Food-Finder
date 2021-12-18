@@ -1,6 +1,5 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { useHistory } from "react-router-dom"
 import { FriendForm } from "./friends/FriendForm"
 import { FriendProfile } from "./friends/Friends"
 import { FriendProfileList} from "./friends/FriendsProfileList"
@@ -9,7 +8,6 @@ import { AllergiesForm } from "./allergies/AllergiesForm"
 
 
 export const ApplicationViews = () => {
-    const history = useHistory()
     return (
         <>
 

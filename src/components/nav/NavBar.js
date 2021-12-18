@@ -4,8 +4,20 @@ import "./NavBar.css"
 
 export const NavBar = (props) => {
     return (
-        <ul className="navbar">
-             <li className="navbar__item">
+       <>
+       <ul className="navbar">
+            <h2 class="header">FoodFinder</h2>
+         
+
+            <li className="navbar__item">
+            <Link className="navbar__link" to="/restrictions/create"> Create New Profile </Link>
+            </li> 
+
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/profileList"> Profiles </Link>
+                
+            </li> 
+            <li className="navbar__item">
                 <Link className="navbar__link" to="#"
                 onClick = {
                     () => {
@@ -16,17 +28,9 @@ export const NavBar = (props) => {
                 </Link>
             </li> 
 
-            <li className="navbar__item">
-            <Link className="navbar__link" to="/restrictions/create"> Create New Profile </Link>
-            </li> 
-
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/profileList"> Food Restrictions Profiles </Link>
-                
-            </li> 
-
            
 
         </ul>
+    </>
     )
 }
