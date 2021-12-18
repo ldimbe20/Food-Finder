@@ -18,7 +18,7 @@ export const AllergiesForm = () => {   //AllergyForm is a component that renders
         const newAllergy = {  //creating an object to save 
             foodRestrictionName: foodRestrictionName.description,  //getting information form state 
             friendId: friends.pop().id,   
-            severityId: parseInt(severityId.id)
+            severityLevelId: parseInt(severityId.id)
         } //we want to send above object to API
         
         // const friendId = friends.pop() 

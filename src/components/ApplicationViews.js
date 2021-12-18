@@ -32,6 +32,11 @@ export const ApplicationViews = () => {
             {/* {} */}
              <FriendProfileList />
             </Route>
+
+            <Route path="/severityLevel">  
+            {/* {} */}
+             {/* <FriendProfileList /> */}
+            </Route>
           
             
         </>
