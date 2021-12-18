@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
+import "./AllergiesForm.css";
 
 
 export const AllergiesForm = () => {   //AllergyForm is a component that renders html
@@ -40,7 +41,7 @@ export const AllergiesForm = () => {   //AllergyForm is a component that renders
 
     useEffect( // a hook whose responsibility it is to react to change state
         () => {
-            fetch("http://localhost:8088/severities")
+            fetch("http://localhost:8088/severityLevels")
                 .then(res => res.json())
                 .then((data) => {
                     setSeverity(data) //taking data as argument
@@ -85,8 +86,8 @@ export const AllergiesForm = () => {   //AllergyForm is a component that renders
                     </div>
                 </fieldset>
 
-                <fieldset>
-                    Select Severity Level
+                <fieldset className="dropdown">
+                   <p className="select"> Select Severity Level </p>
                     <select id="Severity--type" className="Severity--type"
                         onChange={
                             (evt) => {
@@ -99,15 +100,15 @@ export const AllergiesForm = () => {   //AllergyForm is a component that renders
                             severity.map( //iterating through severity array, going through each object in array
                                 (severityLevel) => {
                                     return <option value={severityLevel.id} key={`severityLevel--${severityLevel.id}`}>
-                                           {severityLevel.level}
+                                           {severityLevel.severityLevel}
                                            </option>
-                                }
+                                } 
                             )
                         }
                     </select>
                 </fieldset>
 
-                <button className="btn btn-primary" onClick={saveAllergy}>
+                <button className="SaveAllergy" onClick={saveAllergy}>
                     Submit Food Restriction Name
                 </button>
             </form>

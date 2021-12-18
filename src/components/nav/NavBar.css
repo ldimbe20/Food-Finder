@@ -5,15 +5,25 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: left;
+    
+    background-color: aquamarine;
+    padding: 5px;
 }
 
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
+    text-align: right;
 }
 
 .navbar__link {
     font-family: "Raleway", serif;
     letter-spacing: 2px;
+}
+
+.header {
+    font-family: "Raleway", serif;
+    letter-spacing: 2px;
+    font-size:30px;
+
 }

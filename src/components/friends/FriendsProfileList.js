@@ -13,7 +13,7 @@ export const FriendProfileList = () => {
     ) 
 
     const getFriendFoodRestriction = () => {  //!this is a function is used to set the state of setFriendNameList
-        return fetch("http://localhost:8088/friendFoodRestrictions?_expand=severity&_expand=friend")
+        return fetch("http://localhost:8088/friendFoodRestrictions?_expand=friend&_expand=severityLevel")
             .then(res => res.json())
             .then((data) => {
                 setFriendFoodRestriction(data)  
@@ -52,13 +52,14 @@ export const FriendProfileList = () => {
                 friendFoodRestriction.map( //mapping through friendFoodRestrictions and returning a profile for each argument or friend
                     (friend) => {//!this component returns the profile created by user
 
-                        return <div key={`friendFoodRestriction--${friendFoodRestriction.id}`}>
+                        return <div key={`friendFoodRestriction--${friendFoodRestriction.id}`} className="friendList">
                             {loggedIn === friend.friend.userId
                                 ? <>
                                     <h1> {friend?.friend?.name} </h1>
                                     <p>is allergic to {friend.foodRestrictionName}</p>
                                     <p>The severity of their allergy is a level {friend?.severity?.level}</p>
-                                    <button onClick={() => {
+                                    <button onClick={() => 
+                                    {
                                         deleteProfile(friend.id, friend.friendId)  // taking the argument of ticket.id and mapping through ticket array to find correct id number to delete
                                     }}>Delete</button>  </>
                                 : ""}
