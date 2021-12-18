@@ -57,7 +57,7 @@ export const FriendProfileList = () => {
                                 ? <>
                                     <h1> {friend?.friend?.name} </h1>
                                     <p>is allergic to {friend.foodRestrictionName}</p>
-                                    <p>The severity of their allergy is a level {friend?.severity?.level}</p>
+                                    <p>The severity of their allergy is a level {friend?.severityLevel?.severityLevel}</p>
                                     <button onClick={() => 
                                     {
                                         deleteProfile(friend.id, friend.friendId)  // taking the argument of ticket.id and mapping through ticket array to find correct id number to delete
