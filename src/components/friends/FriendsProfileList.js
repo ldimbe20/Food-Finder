@@ -12,7 +12,7 @@ export const FriendProfileList = () => {
         []
     ) 
 
-    const getFriendFoodRestriction = () => {  //!this componenent is used to set the state of setFriendNameList
+    const getFriendFoodRestriction = () => {  //!this is a function is used to set the state of setFriendNameList
         return fetch("http://localhost:8088/friendFoodRestrictions?_expand=severity&_expand=friend")
             .then(res => res.json())
             .then((data) => {
@@ -35,7 +35,7 @@ export const FriendProfileList = () => {
 
 
     
-    const deleteFriend = (id) => { //!this component deletes the friendId that is associated with the friendFoodRestrictionId
+    const deleteFriend = (id) => { 
         fetch(`http://localhost:8088/friends/${id}`, { 
             //from line line 52
 

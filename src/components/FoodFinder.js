@@ -4,6 +4,7 @@ import { NavBar } from "./nav/NavBar";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import { Route, Redirect} from "react-router-dom"
+import "./FoodFinder.css";
 
 
 
@@ -35,22 +36,6 @@ export const FoodFinder = () => (
   );
 
 
-//getcurrent user 
 
-
-//   <Route
-//   render={() => {
-//     if (localStorage.getItem("food_customer")) {
-//       return (
-//           <>
-//           <NavBar />
-//           <Welcome />
-//       </>
-//       );
-//     } else {
-//       return <Redirect to="/login" />;
-//     }
-//   }}
-// />
 
 

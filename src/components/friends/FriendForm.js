@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
 
 
@@ -14,7 +14,7 @@ export const FriendForm = () => {   //restrictionForm is a component to gather i
 
 
 
-    const saveName = (evt) => { //component that post datat based on argument
+    const saveName = (evt) => { //component that post data based on argument
         evt.preventDefault()
         const fetchOption = (parameter) => {
             return {
@@ -42,12 +42,12 @@ export const FriendForm = () => {   //restrictionForm is a component to gather i
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="friend">Friend's Name:</label>
+                    <label htmlFor="friend">Add Name Here:</label>
                     <input
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Friends Profile Name"
+                        placeholder="Profile Name Here"
                         onChange={ //onChange is like an event listener that listens for a change and records it- we are listening for the change in description here
                             (evt) => {
                                 const copy = { ...friendName }     //using object spread operator to copy the initual state

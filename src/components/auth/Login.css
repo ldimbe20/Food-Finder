@@ -1,3 +1,9 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Raleway:ital,wght@0,400;1,200&display=swap');
+/*Typography
+--------------------------------------------------------------*/
+
+
 .h1, h1 {
     font-size: 2.5rem;
 }
@@ -13,15 +19,18 @@ fieldset {
     display: inline-block;
     margin: 0 auto;
     text-align: left;
+    font: Raleway
 }
 
 .form--login > fieldset > input[type="email"] {
     width: 25em;
+    font: Raleway
 }
 
 .label--login {
     width: 8rem;
     display: inline-block;
+    font: Raleway
 }
 
 .form-control {
@@ -64,4 +73,11 @@ fieldset {
     min-width: 15rem;
     min-height: 5rem;
 }
+ 
+.label {
+    font: Raleway
+}
 
+.fieldset{
+    font: Raleway
+}

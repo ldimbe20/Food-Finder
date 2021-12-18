@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 
 
-export const AllergiesForm = () => {   //restrictionForm is a component
+export const AllergiesForm = () => {   //AllergyForm is a component that renders html
     const history = useHistory()
-    const [severity, setSeverity] = useState([])
+    const [severity, setSeverity] = useState([]) 
     const [severityId, setSeverityId] = useState ({})
     const [friends, setFriends] = useState ([])
-
     const [foodRestrictionName, setfoodRestrictionName] = useState({
-        description: ""})
+    description: ""})
 
 
 
@@ -24,7 +23,7 @@ export const AllergiesForm = () => {   //restrictionForm is a component
         // const friendId = friends.pop() 
 
         const fetchOption = {
-            method: "POST", //posting to the API using POst method
+            method: "POST", //posting to the API using Post method
             headers: {
                 "Content-Type": "application/json"
             },
@@ -34,7 +33,7 @@ export const AllergiesForm = () => {   //restrictionForm is a component
         return fetch("http://localhost:8088/friendFoodRestrictions", fetchOption)
             .then(response => response.json())
             .then (() => {
-                history.push("ProfileList")  
+                history.push("/profileList")  //changed the url to direct to profileList
         })
 
     }
@@ -44,7 +43,7 @@ export const AllergiesForm = () => {   //restrictionForm is a component
             fetch("http://localhost:8088/severities")
                 .then(res => res.json())
                 .then((data) => {
-                    setSeverity(data)
+                    setSeverity(data) //taking data as argument
                 })
         },
         [] //
@@ -63,20 +62,18 @@ export const AllergiesForm = () => {   //restrictionForm is a component
 
 
 
-
-
     return (
         <>
             <form className="allergyForm">
-                <h2 className="allergyForm__title">New Service FoodRestrictionName</h2>
+                <h2 className="allergyForm__title">Food Restriction Name</h2>
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="foodName">Type Food Name:</label>
+                        <label htmlFor="foodName">Food Restriction Name:</label>
                         <input
                             required autoFocus
                             type="text"
                             className="form-control"
-                            placeholder="Brief description of problem"
+                            placeholder="Add food name here "
                             onChange={ //onChange is like an event listener that listens for a change and records it- we are listening for the change in description here
                                 (evt) => {
                                     const copy = { ...foodRestrictionName }     //using object spread operator to copy the initual state
@@ -99,7 +96,7 @@ export const AllergiesForm = () => {   //restrictionForm is a component
                             }}>   
                         <option value="0" label="Severity Level of Allergy"></option>
                         {
-                            severity.map(
+                            severity.map( //iterating through severity array, going through each object in array
                                 (severityLevel) => {
                                     return <option value={severityLevel.id} key={`severityLevel--${severityLevel.id}`}>
                                            {severityLevel.level}
