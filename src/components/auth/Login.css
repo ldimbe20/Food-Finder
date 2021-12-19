@@ -1,6 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Raleway:ital,wght@0,400;1,200&display=swap');
-/*Typography
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;1,400&family=Source+Serif+Pro:wght@400;600&display=swap');/*Typography
 --------------------------------------------------------------*/
 
 
@@ -10,7 +9,7 @@
 
 fieldset {
     min-width: 0;
-    padding: 1rem 0;
+    padding: 1rem 0 30;
     margin: 0;
     border: 0;
 }
@@ -24,13 +23,15 @@ fieldset {
 
 .form--login > fieldset > input[type="email"] {
     width: 25em;
-    font: Raleway
+    font: Raleway;
+    font-style: italic;
 }
 
 .label--login {
     width: 8rem;
     display: inline-block;
-    font: Raleway
+    font: Raleway;
+    font-style: italic;
 }
 
 .form-control {
@@ -67,6 +68,7 @@ fieldset {
 .button--close {
     position: relative;
     bottom: -2rem;
+    color:brown;
 }
 
 .dialog {
@@ -79,5 +81,60 @@ fieldset {
 }
 
 .fieldset{
-    font: Raleway
+    font: Raleway, serif;
+    font-style: italic;
+    
 }
+
+a{
+    text-decoration: none; 
+    text-transform: uppercase;
+}
+
+a:visited {
+    color: rgb(65, 63, 63);
+  }
+
+a:hover {
+    color: rgb(60, 208, 158);
+  }
+
+.SignIn{
+  background-color:rgba(30, 153, 112, 0.645);
+    font-family: Raleway,serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    margin-left:0px ;
+
+}
+
+
+.SignIn:hover{
+    background-color:rgba(30, 153, 112, 0.796);
+  }
+
+.InputEmail{
+    font-family: "Raleway", serif;
+    font-weight:400;
+    text-transform: uppercase;
+    padding:5px;
+}
+
+.FF_Header{
+    margin-bottom:0px;
+}
+/* .InputEmail:focus{
+    outline: 2px solid orange; 
+} */
+
+.SignInText{
+    font-family: "Raleway", serif;
+    font-size:20px;
+    margin: 0px 0px 10px 0px;
+    
+
+}
+  

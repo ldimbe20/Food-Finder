@@ -36,10 +36,10 @@ export const Login = () => {
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Forbidden Food Finder</h1>
-                    <h2>Please sign in</h2>
+                    <h1 className="FF_Header">Forbidden Food Finder</h1>
+                    <h2 className ="SignInText">Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                        <label className="InputEmail" htmlFor="inputEmail"> Email address </label>
                         <input type="email"
                             onChange={evt => set(evt.target.value)}
                             className="form-control"
@@ -47,7 +47,7 @@ export const Login = () => {
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <button className="SignIn" type="submit">
                             Sign in
                         </button>
                     </fieldset>

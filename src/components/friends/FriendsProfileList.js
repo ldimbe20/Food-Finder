@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import "./FriendsProfileList.css"
 
 export const FriendProfileList = () => {
     const [friendFoodRestriction, setFriendFoodRestriction] = useState([])
@@ -55,9 +56,9 @@ export const FriendProfileList = () => {
                         return <div key={`friendFoodRestriction--${friendFoodRestriction.id}`} className="friendList">
                             {loggedIn === friend.friend.userId
                                 ? <>
-                                    <h1> {friend?.friend?.name} </h1>
-                                    <p>is allergic to {friend.foodRestrictionName}</p>
-                                    <p>The severity of their allergy is a level {friend?.severityLevel?.severityLevel}</p>
+                                    <h2 className="name"> {friend?.friend?.name} </h2>
+                                    <p className="allergic">is allergic to {friend.foodRestrictionName}</p>
+                                    <p className="severity">The severity of their allergy is a level {friend?.severityLevel?.severityLevel}</p>
                                     <button onClick={() => 
                                     {
                                         deleteProfile(friend.id, friend.friendId)  // taking the argument of ticket.id and mapping through ticket array to find correct id number to delete

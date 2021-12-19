@@ -40,10 +40,20 @@ form {
 
 .select {
     font-family: "Raleway", serif;
-    font-size:20px;
+    font-size:14px;
+    margin-left:0px ;
+    text-transform: uppercase;
+    margin-bottom:10px;
 }
 
 .Severity--type{
 margin-left:auto;
 
 }
+
+.dropdown{
+  margin:30px,0px;
+  padding-top: 0px;
+ 
+}
+

@@ -6,7 +6,7 @@ export const NavBar = (props) => {
     return (
        <>
        <ul className="navbar">
-            <h2 class="header">FoodFinder</h2>
+            {/* <h2 class="header">Forbidden Food Finder</h2> */}
          
 
             <li className="navbar__item">
