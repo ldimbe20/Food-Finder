@@ -1,25 +1,59 @@
 /* Import the google web fonts you want to use */
-@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;1,200&family=Source+Serif+Pro:wght@400;600&display=swap');
 /*Typography
 --------------------------------------------------------------*/
 body,
-button,
+/* button, */
 input,
 select,
 textarea {
   color: #404040;
-  font-family: "Comfortaa", Arial, sans-serif;
+  font-family: "Source+Serif+Pro", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Patua One", serif;
+  font-family: "Source Serif", serif;
   letter-spacing: 2px;
 }
 
 p {
   margin-bottom: 1.5em;
 }
+
+button{
+  background-color:rgba(30, 153, 112, 0.645);
+  font-family: Raleway,serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  padding:5px;
+  border-radius: 5px;
+  margin-bottom:10px ;
+}
+
+button:hover{
+  background-color:rgba(30, 153, 112, 0.796);
+}
+
+input{
+  font-family: "Raleway", serif;
+  font-weight:400;
+  padding:5px;
+}
+
+.form-control{width: 25em;
+font: Raleway;
+font-style: italic;}
+
+label{
+  font-family: "Raleway", serif;
+    font-weight:400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
 

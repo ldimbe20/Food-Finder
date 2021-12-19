@@ -1,12 +1,13 @@
 import React from "react"
 import { useHistory } from "react-router-dom"
+import "./Welcome.css";
 
 export const Welcome = () => {
     const history = useHistory()
     return (
         <> 
          <h2>Forbidden Food Finder</h2>
-         <h4>Welcome to Forbidden Food Finder
+         <h4 className="welcome">Welcome to Forbidden Food Finder
         where you can sort through your friendʼs and
         familyʼs dietary needs.</h4>
  

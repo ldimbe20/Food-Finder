@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Raleway:ital,wght@0,400;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;1,200&family=Source+Serif+Pro:wght@400;600&display=swap');
 /*Typography
 --------------------------------------------------------------*/
 
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    
-    background-color: aquamarine;
+    background-color:rgba(30, 153, 112, 0.645);
     padding: 5px;
 }
 
@@ -18,12 +17,37 @@
 
 .navbar__link {
     font-family: "Raleway", serif;
-    letter-spacing: 2px;
+    font-weight:400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white
 }
 
 .header {
-    font-family: "Raleway", serif;
+    font-family: "Source Serif Pro", serif;
+    font-weight: 600;
     letter-spacing: 2px;
-    font-size:30px;
+    font-size:35px;
 
 }
+
+
+
+.navbar__link:visited {
+    color: #404040;
+  }
+  
+  /* mouse over link */
+  .navbar__link:hover {
+    color: white;
+  }
+
+  /* a{
+    text-decoration: none; 
+    text-transform: uppercase;
+}
+
+a:visited {
+    color: rgb(65, 63, 63);
+  } */

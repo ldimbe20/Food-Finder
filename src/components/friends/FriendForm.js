@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
+import "./FriendForm.css";
 
 
 export const FriendForm = () => {   //restrictionForm is a component to gather information for form
@@ -38,11 +39,11 @@ export const FriendForm = () => {   //restrictionForm is a component to gather i
     return (
         <>
         <form className="userRestrictionForm">
-            <h2 className="userRestrictionForm__title">New Food Restriction Profile</h2>
+            <h2 className="userRestrictionForm__title">Create New Profile</h2>
 
             <fieldset>
-                <div className="form-group">
-                    <label htmlFor="friend">Add Name Here:</label>
+                <div className="form-group2">
+                    <label htmlFor="friend" className="AddName">Add Name Here:</label>
                     <input
                         required autoFocus
                         type="text"

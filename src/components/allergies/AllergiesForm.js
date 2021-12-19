@@ -109,7 +109,7 @@ export const AllergiesForm = () => {   //AllergyForm is a component that renders
                 </fieldset>
 
                 <button className="SaveAllergy" onClick={saveAllergy}>
-                    Submit Food Restriction Name
+                    Submit
                 </button>
             </form>
         </>
