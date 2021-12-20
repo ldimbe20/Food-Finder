@@ -1,12 +1,133 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;1,400&family=Source+Serif+Pro:wght@400;600&display=swap');/*Typography
 
-.SignIn{
-    background-color:rgba(60, 208, 158, 0.645);
-    font-family: Raleway,serif;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;1,400&family=Source+Serif+Pro:wght@400;600&display=swap');/*Typography
+--------------------------------------------------------------*/
+
+
+
+.h1, h1 {
+    font-size: 2.5rem;
+}
+
+fieldset {
+    min-width: 0;
+    padding: 1rem 0 30;
+    margin: 0;
+    border: 0;
+}
+
+.form--login {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: left;
+    font: Raleway
+}
+
+.form--login > fieldset > input[type="email"] {
+    width: 25em;
+    font: Raleway;
+    font-style: italic;
+}
+
+.label--login {
+    width: 8rem;
+    display: inline-block;
+    font: Raleway;
+    font-style: italic;
+}
+
+.form-control {
+    display: block;
+    width: 94%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
     font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.container--login {
+    text-align: center;
+}
+
+.form--login {
+    background-position-x: right;
+    z-index: 1;
+    min-height: 25rem;
+    min-width: 45rem;
+    background-color: hsla(0,0%,100%,0.40);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+}
+
+.button--close {
+    position: relative;
+    bottom: -2rem;
+    color:brown;
+}
+
+.dialog {
+    min-width: 15rem;
+    min-height: 5rem;
+}
+ 
+.label {
+    font: Raleway
+}
+
+.fieldset{
+    font: Raleway, serif;
+    font-style: italic;
+    
+}
+
+a{
+    text-decoration: none; 
     text-transform: uppercase;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
+}
+
+a:visited {
+    color: rgb(65, 63, 63);
+  }
+
+a:hover {
+    color:rgba(30, 153, 112, 0.796);
+  }
+
+.Register{
+  background-color:rgba(30, 153, 112, 0.645);
+  font-family: Raleway,serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  margin-left:0px ;
 
 }
+
+
+.Register:hover{
+    background-color:rgba(30, 153, 112, 0.796);
+  }
+
+.InputEmail{
+    font-family: "Raleway", serif;
+    font-weight:400;
+    text-transform: uppercase;
+    padding:5px;
+}
+
+.FF_Header{
+    margin-bottom:0px;
+}
+/* .InputEmail:focus{
+    outline: 2px solid orange; 
+} */
+

@@ -1,9 +1,9 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { FriendForm } from "./friends/FriendForm"
-import { FriendProfile } from "./friends/Friends"
 import { FriendProfileList} from "./friends/FriendsProfileList"
 import { Welcome } from "./Welcome";
+import { Severities } from "./severityLevel/SeverityLevel"
 import { AllergiesForm } from "./allergies/AllergiesForm"
 
 
@@ -22,11 +22,12 @@ export const ApplicationViews = () => {
             <Route path="/allergies">
                 <AllergiesForm />
             </Route>
-            
-            <Route path="/restrictions/:foodRestrictionsId(\d+)">  
-            {/* {} */}
-             <FriendProfile />
+
+            <Route path="/severityLevel">
+                {/* {} */}
+                <Severities />
             </Route>
+            
 
             <Route path="/profileList">  
             {/* {} */}
