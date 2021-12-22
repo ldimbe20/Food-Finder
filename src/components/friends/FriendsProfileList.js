@@ -8,8 +8,8 @@ export const FriendProfileList = () => {
 
     useEffect( 
         () => {
-            getFriendFoodRestriction()
-        },
+            getFriendFoodRestriction()  //function is first argument  and array is second argument
+        },  //this is just setting setFriendFoodRestriction but it isn't react to state change
         []
     ) 
 
@@ -24,7 +24,7 @@ export const FriendProfileList = () => {
 
     const deleteProfile = (id, friendId) => { //using friendId and id as arguments to be deleted 
         fetch(`http://localhost:8088/friendFoodRestrictions/${id}`, { //gathering info from API
-            //from line line 52
+            //from line 52
 
             method: "DELETE" //deleting that info
         })
@@ -57,11 +57,11 @@ export const FriendProfileList = () => {
                             {loggedIn === friend.friend.userId
                                 ? <>
                                     <h2 className="name"> {friend?.friend?.name} </h2>
-                                    <p className="allergic">is allergic to <b>{friend.foodRestrictionName}</b></p>
-                                    <p className="severity"> The severity of their allergy is a <b>Level {friend?.severityLevel?.severityLevel}</b></p>
+                                    <p className="allergic"><b>Food Allergie: {friend.foodRestrictionName}</b></p>
+                                    <p className="severity"> <b>Severity Level: {friend?.severityLevel?.severityLevel}</b></p>
+                                    <p className="treatment"> <b>Treatment: {friend?.treatment}</b></p>
                                     <button onClick={() => 
-                                    {
-                                        deleteProfile(friend.id, friend.friendId)  // taking the argument of ticket.id and mapping through ticket array to find correct id number to delete
+                                    {deleteProfile(friend.id, friend.friendId)  // taking the argument of ticket.id and mapping through ticket array to find correct id number to delete
                                     }}>Delete</button>  </>
                                 : ""}
 

@@ -19,14 +19,25 @@
     font-family: "Source Serif", serif;
     letter-spacing: 2px;
     text-align: center;
+    text-transform: uppercase;
 }
 
 
-.Treatment_Level{
+.Level{
     margin-left:0px;
     margin-top: 0px;
     margin-bottom: 0px;
-    font-size:16px;
+    font-size:20px;
+    font-family: "Source Serif", serif;
+    
+
+}
+
+.Treatment{
+    margin-left:0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size:14px;
     font-family: "Raleway", serif;
     font-weight:600;
     text-transform: uppercase;
