@@ -8,6 +8,8 @@ export const AllergiesForm = () => {   //AllergyForm is a component that renders
     const [severity, setSeverity] = useState([]) 
     const [severityId, setSeverityId] = useState ({})
     const [friends, setFriends] = useState ([])
+    const [treatment, setTreatment] = useState ({
+    description: ""})
     const [foodRestrictionName, setfoodRestrictionName] = useState({
     description: ""})
 
@@ -18,7 +20,8 @@ export const AllergiesForm = () => {   //AllergyForm is a component that renders
         const newAllergy = {  //creating an object to save 
             foodRestrictionName: foodRestrictionName.description,  //getting information form state 
             friendId: friends.pop().id,   
-            severityLevelId: parseInt(severityId.id)
+            severityLevelId: parseInt(severityId.id),
+            treatment: treatment.description
         } //we want to send above object to API
         
         // const friendId = friends.pop() 
@@ -107,6 +110,28 @@ export const AllergiesForm = () => {   //AllergyForm is a component that renders
                         }
                     </select>
                 </fieldset>
+   
+
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="foodName">Treatment:</label>
+                        <input
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            placeholder="If allergy occurs add treatment "
+                            onChange={ //onChange is like an event listener that listens for a change and records it- we are listening for the change in description here
+                                (evt) => {
+                                    const copy = { ...treatment }     //using object spread operator to copy the initual state
+                                    copy.description = evt.target.value  //making the new description = the value of someone typing into the description field
+                                    setTreatment(copy)
+                                }
+                            } />
+                        
+                    </div>
+                </fieldset>
+
+                
 
                 <button className="SaveAllergy" onClick={saveAllergy}>
                     Submit
