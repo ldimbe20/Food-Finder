@@ -5,7 +5,7 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    background-color:rgba(30, 153, 112, 0.645);
+    background-color:#6e7f62;
     padding: 5px;
 }
 
@@ -17,7 +17,7 @@
 
 .navbar__link {
     font-family: "Raleway", serif;
-    font-weight:400;
+    font-weight:600;
     letter-spacing: 1px;
     text-transform: uppercase;
     text-decoration: none;
@@ -35,12 +35,12 @@
 
 
 .navbar__link:visited {
-    color: #404040;
+    color: white;
   }
   
   /* mouse over link */
   .navbar__link:hover {
-    color: white;
+    color: #c1b985;
   }
 
   /* a{

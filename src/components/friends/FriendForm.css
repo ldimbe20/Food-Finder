@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Raleway:ital,wght@0,400;1,200&display=swap');
 
 
+body{
+  /* background-color: rgb(218, 115, 115); */
+  /* background-image: url('./images/food.jpg'); */
+  background-image: url('./images/food.jpg');
+  background-size: cover;
+  background-attachment:fixed;
+  background-position:center bottom;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  
+}
 
 
 .AddName{
@@ -17,7 +28,7 @@
   }
 
   button{
-    margin-left:30px;
+    margin-left:40px;
   }
 
   .userRestrictionForm__title{
@@ -43,3 +54,9 @@
       margin-bottom: 10px;
 
   }
+
+  .userRestrictionForm__title{
+    margin-left: 30px;
+    margin-bottom: 0px;
+  }
+

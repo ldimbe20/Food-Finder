@@ -101,7 +101,7 @@ a:hover {
   }
 
 .Register{
-  background-color:rgba(30, 153, 112, 0.645);
+  background-color:#c1b985;
   font-family: Raleway,serif;
   font-weight: 400;
   text-transform: uppercase;
@@ -114,7 +114,7 @@ a:hover {
 
 
 .Register:hover{
-    background-color:rgba(30, 153, 112, 0.796);
+    background-color: #afa76f;
   }
 
 .InputEmail{
@@ -127,7 +127,20 @@ a:hover {
 .FF_Header{
     margin-bottom:0px;
 }
-/* .InputEmail:focus{
-    outline: 2px solid orange; 
-} */
+button{
+    background-color: #c1b985;
+    font-family: Raleway,serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    padding:5px;
+    border-radius: 5px;
+    margin-bottom:10px ;
+    color: #14312a;
+  }
+  
+  button:hover{
+    background-color: #afa76f;
+  }
 

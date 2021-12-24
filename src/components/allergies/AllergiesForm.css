@@ -26,7 +26,7 @@ form {
 
 .form-control{
     font-family: "Raleway", serif;
-    
+  
 }
 
 .allergyForm{
@@ -35,7 +35,7 @@ form {
 }
 
 .SaveAllergy{
-    margin-left:30px;
+    margin-left:40px;
     font-family: "Raleway", serif;
     font-weight: 300;
     
@@ -64,3 +64,6 @@ margin-left:auto;
  
 }
 
+.allergyForm__title{
+  margin-bottom:5px;
+}
