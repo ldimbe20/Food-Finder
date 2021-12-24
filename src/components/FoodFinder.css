@@ -7,10 +7,11 @@ body,
 input,
 select,
 textarea {
-  color: #404040;
+  color: #14312a;
   font-family: "Source+Serif+Pro", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
+  
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -23,7 +24,7 @@ p {
 }
 
 button{
-  background-color:rgba(30, 153, 112, 0.645);
+  background-color: #c1b985;
   font-family: Raleway,serif;
   font-weight: 400;
   text-transform: uppercase;
@@ -32,10 +33,11 @@ button{
   padding:5px;
   border-radius: 5px;
   margin-bottom:10px ;
+  color: #14312a;
 }
 
 button:hover{
-  background-color:rgba(30, 153, 112, 0.796);
+  background-color: #afa76f;
 }
 
 input{
@@ -47,7 +49,13 @@ input{
 .form-control{width: 25em;
 font: Raleway;
 font-style: italic;
-font-weight:bold;}
+font-weight:bold;
+color: #14312a;
+background-color: #b1c3b2}
+
+.form-control:hover{
+  border-color: #14312a;
+}
 
 label{
   font-family: "Raleway", serif;
@@ -58,4 +66,7 @@ label{
     font-weight: bold;
 }
 
+.form-control:clicked {
+  color: white;
+}
 

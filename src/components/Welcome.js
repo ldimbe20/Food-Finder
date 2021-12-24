@@ -8,7 +8,7 @@ export const Welcome = () => {
         <> 
          <h2>Forbidden Food Finder</h2>
          <h4 className="welcome">Welcome to Forbidden Food Finder
-        where you see your friendʼs and
+        where you can see your friendʼs and
         familyʼs dietary needs.</h4>
  
                      <div className="centerChildren btn--newResource">

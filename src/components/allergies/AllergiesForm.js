@@ -90,7 +90,7 @@ export const AllergiesForm = () => {   //AllergyForm is a component that renders
                 </fieldset>
 
                 <fieldset className="dropdown">
-                   <p className="select"> Select Severity Level </p>
+                   <p className="select"> Select Severity Level: </p>
                     <select id="Severity--type" className="Severity--type"
                         onChange={
                             (evt) => {
