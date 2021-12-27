@@ -100,7 +100,7 @@ a:hover {
   }
 
 .SignIn{
-    background-color:#c1b985;
+    background-color:#e7d97b;
     font-family: Raleway,serif;
     font-weight: 400;
     text-transform: uppercase;
@@ -113,7 +113,7 @@ a:hover {
 
 
 .SignIn:hover{
-    background-color: #afa76f;
+    background-color: #dfce4e;
   }
 
 .InputEmail{
@@ -125,15 +125,15 @@ a:hover {
 
 .FF_Header{
     margin-bottom:0px;
+    margin-left: 15px;
 }
-/* .InputEmail:focus{
-    outline: 2px solid orange; 
-} */
+
 
 .SignInText{
     font-family: "Raleway", serif;
     font-size:20px;
-    margin: 0px 0px 10px 0px;
+    margin-left:12px;
+    margin-top:0px ;
     
 
 }

@@ -7,12 +7,7 @@ import UserRestrictionForm from "./userRestriction/UserRestrictionForm"
 export default () => {
     return (
         <>
-            {/* <Route exact path="/animals">
-                <AnimalListComponent />
-            </Route>
-            <Route path="/animals/:animalId(\d+)">
-                <Animal />
-            </Route> */}
+           
             <Route path="/foodrestriction/new">
                 <UserRestrictionForm />
             </Route>
