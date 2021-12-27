@@ -24,7 +24,7 @@ p {
 }
 
 button{
-  background-color: #c1b985;
+  background-color: #e7d97b;
   font-family: Raleway,serif;
   font-weight: 400;
   text-transform: uppercase;
@@ -37,7 +37,7 @@ button{
 }
 
 button:hover{
-  background-color: #afa76f;
+  background-color: #ebdd76;
 }
 
 input{
@@ -51,7 +51,7 @@ font: Raleway;
 font-style: italic;
 font-weight:bold;
 color: #14312a;
-background-color: #b1c3b2}
+background-color: #d6ecd7}
 
 .form-control:hover{
   border-color: #14312a;

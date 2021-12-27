@@ -87,13 +87,13 @@ export const Severities = () => {
                     Hives, itching or eczema. Swelling of the lips, face, tongue and throat or other parts of the body
                     Wheezing, nasal congestion or trouble breathing</p>
                 <h4 className="Treatment">Treatment:</h4>
-                <p className ="Description">Use common allergy medicines such as benedryl, antihistamines, adrenaline </p>
+                <p className ="Description">Depending on severity use epinephrine. This medicine is injected under the skin or into the muscle of your outer thigh only. Do not inject this medicine into a vein, into the muscle of your buttocks, or into your fingers, toes, hands, or feet. To do so, may increase the chance of having serious side effects </p>
             </div>
              <div className="Severities">
                 <h3 className="Level"><b>Level 4</b></h3>
                 <p className ="Description"> Wheezing, nasal congestion and inability to breath or trouble breathing</p>
                 <h4 className="Treatment">Treatment:</h4>
-                <p className ="Description">Use common allergy medicines such as benedryl, antihistamines, adrenaline </p>
+                <p className ="Description">Use Epinephrine injection. This medicine is injected under the skin or into the muscle of your outer thigh only. Do not inject this medicine into a vein, into the muscle of your buttocks, or into your fingers, toes, hands, or feet. To do so, may increase the chance of having serious side effects </p>
             </div>
        </div>
      </>

@@ -97,11 +97,11 @@ a:visited {
   }
 
 a:hover {
-    color:rgba(30, 153, 112, 0.796);
+    color:#dfce4e;
   }
 
 .Register{
-  background-color:#c1b985;
+  background-color:#e7d97b;
   font-family: Raleway,serif;
   font-weight: 400;
   text-transform: uppercase;
@@ -114,7 +114,7 @@ a:hover {
 
 
 .Register:hover{
-    background-color: #afa76f;
+    background-color: #dfce4e;
   }
 
 .InputEmail{
@@ -144,3 +144,8 @@ button{
     background-color: #afa76f;
   }
 
+.RegisterHere{
+    margin-left:10px;
+    margin-bottom:0px;
+    margin-top:33px;
+}

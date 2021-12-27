@@ -2,8 +2,6 @@
 
 
 body{
-  /* background-color: rgb(218, 115, 115); */
-  /* background-image: url('./images/food.jpg'); */
   background-image: url('./images/food.jpg');
   background-size: cover;
   background-attachment:fixed;
