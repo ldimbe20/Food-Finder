@@ -31,9 +31,7 @@
 .friendList{
     margin-top:60px;
     margin-left:60px;
-    background-color: #b1c3b2;
-    /* background-color: #c1b985; */
-    /* background-color: white; */
+    background-color:#adcabd;
     padding-bottom: 10px;
     padding-top: 10px;
     margin-right: 715px;
@@ -75,15 +73,23 @@
 
   
 .delete{
-  background-color:#6e7f62;
+  background-color:#5a766e;
   font-weight:bold;
   color: white;
   margin-left: 10px;
 }
 
 .delete:hover{
-  background-color:#627256;
+  background-color:#385a50;
   font-weight:bold;
   color: white;
   margin-left: 10px;
+}
+
+.Emergency{
+  font-weight:bold;
+  font-style: italic;
+  color: #c63b55;
+  padding-left:50px;
+  
 }

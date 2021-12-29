@@ -52,18 +52,19 @@ export const FriendProfileList = () => {
             {
                 friendFoodRestriction.map( //mapping through friendFoodRestrictions and returning a profile for each argument or friend
                     (friend) => {//!this component returns the profile created by user
-                    // {loggedIn === friend.friend.userId ?
                         return (loggedIn === friend.friend.userId) ?
                         <div key={`friendFoodRestriction--${friendFoodRestriction.id}`} className="friendList">
                             
                                  <>
                                     <h2 className="name"> {friend?.friend?.name} </h2>
                                     <p className="allergic"><b>Food Allergy: {friend.foodRestrictionName}</b></p>
-                                    <p className="severity"> <b>Severity Level: {friend?.severityLevel?.severityLevel}</b></p>
+                                    <p className="severity"> <b>Severity Level: {friend?.severityLevel?.severityLevel}</b> </p>
                                     <p className="treatment"> <b>Treatment: {friend?.treatment}</b></p>
                                     <button className="delete"onClick={() => 
-                                    {deleteProfile(friend.id, friend.friendId)  // taking the argument of ticket.id and mapping through ticket array to find correct id number to delete
-                                    }}>Delete</button>  </>
+                                    {deleteProfile(friend.id, friend.friendId)  
+                                    }}>Delete</button> 
+                                    <b className="Emergency"> {friend?.severityLevel?.severityLevel === 4 ? "SEVERE ALLERGY" : null } </b> 
+                                </>
                                 
                         </div>: ""
                     }
@@ -72,3 +73,4 @@ export const FriendProfileList = () => {
         </>
     )
 }
+
