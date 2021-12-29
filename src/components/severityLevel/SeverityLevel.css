@@ -24,11 +24,13 @@
 
 
 .Level{
+    background-color: rgb(178, 240, 219);
     margin-left:0px;
     margin-top: 0px;
     margin-bottom: 0px;
     font-size:20px;
     font-family: "Source Serif", serif;
+    padding-left:5px;
     
 
 }
@@ -46,5 +48,12 @@
 
 .Source{
     background-color:white;
-    padding-bottom: 200px;
+    
+}
+
+.people__Allergy{
+    padding: 5px;
+    margin-left: 0px;
+    font-weight: bold;
+    
 }

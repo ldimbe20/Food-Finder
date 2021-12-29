@@ -7,7 +7,7 @@ body,
 input,
 select,
 textarea {
-  color: #14312a;
+  color: #194946;
   font-family: "Source+Serif+Pro", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
@@ -24,7 +24,7 @@ p {
 }
 
 button{
-  background-color: #e7d97b;
+  background-color: #adcabd;
   font-family: Raleway,serif;
   font-weight: 400;
   text-transform: uppercase;
@@ -33,11 +33,11 @@ button{
   padding:5px;
   border-radius: 5px;
   margin-bottom:10px ;
-  color: #14312a;
+  color: #194946;
 }
 
 button:hover{
-  background-color: #ebdd76;
+  background-color: #8ec5ac;
 }
 
 input{
@@ -50,11 +50,11 @@ input{
 font: Raleway;
 font-style: italic;
 font-weight:bold;
-color: #14312a;
-background-color: #d6ecd7}
+color: #194946;
+background-color: #dcf7ea}
 
 .form-control:hover{
-  border-color: #14312a;
+  border-color: #194946;
 }
 
 label{

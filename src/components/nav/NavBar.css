@@ -5,7 +5,7 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    background-color:#6e7f62;
+    background-color:#5a766e;
     padding: 5px;
 }
 
@@ -40,7 +40,7 @@
   
   /* mouse over link */
   .navbar__link:hover {
-    color: #e7d97b;
+    color: #adcabd;
   }
 
   /* a{
