@@ -18,7 +18,7 @@ export const NavBar = (props) => {
             </li>
 
             <li className="navbar__item">
-                <Link className="navbar__link" to="/severityLevel"> Severity Level </Link>
+                <Link className="navbar__link" to="/severityLevel"> Severity Levels </Link>
             </li>
 
             <li className="navbar__item">

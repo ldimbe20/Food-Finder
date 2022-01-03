@@ -1,6 +1,6 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;1,400&family=Source+Serif+Pro:wght@400;600&display=swap');/*Typography
---------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;1,400&family=Source+Serif+Pro:wght@400;600&display=swap');
+
 
 .Severities{
     margin-left:50px;
@@ -24,7 +24,7 @@
 
 
 .Level{
-    background-color: rgb(178, 240, 219);
+    background-color: #adcabd;
     margin-left:0px;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -43,17 +43,22 @@
     font-family: "Raleway", serif;
     font-weight:600;
     text-transform: uppercase;
+    font-weight: bold;
+   
 
 }
 
 .Source{
-    background-color:white;
+    background-color: white;
+    padding-bottom: 20px;
+    padding-left: 30px;
     
 }
 
 .people__Allergy{
-    padding: 5px;
+    padding: 0px;
     margin-left: 0px;
     font-weight: bold;
+    color:#c63b55;
     
 }
