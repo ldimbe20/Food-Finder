@@ -69,7 +69,7 @@ export const AllergiesForm = () => {   //AllergyForm is a component that renders
     return (
         <>
             <form className="allergyForm">
-                <h2 className="allergyForm__title">Food Restriction Name</h2>
+                <h2 className="allergyForm__title">Create Food Restriction Profile</h2>
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="foodName">Food Restriction Name:</label>
