@@ -53,7 +53,7 @@ export const FriendProfileList = () => {
                 friendFoodRestriction.map( //mapping through friendFoodRestrictions and returning a profile for each argument or friend
                     (friend) => {//!this component returns the profile created by user
                         return (loggedIn === friend.friend.userId) ?
-                        <div key={`friendFoodRestriction--${friendFoodRestriction.id}`} className="friendList">
+                        <div key={`friend--${friend.id}`} className="friendList">
                             
                                  <>
                                     <h2 className="name"> {friend?.friend?.name} </h2>

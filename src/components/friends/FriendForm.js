@@ -38,6 +38,7 @@ export const FriendForm = () => {   //restrictionForm is a component to gather i
 
     return (
         <>
+        
         <form className="userRestrictionForm">
             <h2 className="userRestrictionForm__title">Create New Profile</h2>
 

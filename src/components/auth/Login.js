@@ -28,6 +28,7 @@ export const Login = () => {
     }
 
     return (
+        <body className="body-white">
         <main className="container--login">
             <dialog className="dialog dialog--auth" ref={existDialog}>
                 <div>User does not exist</div>
@@ -57,6 +58,7 @@ export const Login = () => {
                 <Link to="/register">Not a member yet?</Link>
             </section>
         </main>
+        </body>
     )
 }
 
