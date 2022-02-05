@@ -50,34 +50,77 @@ export const Severities = () => {
         []
     )
 
+//     return (
+//         <>
+//             <h2 className="allergyForm__title">Understanding Food Allergy Levels</h2>
+//             { severityModel.map(
+//                     (severityItem) => {
+//                         return (
+                            
+//                            <div className="Source" key={`severityItem--${severityItem.key}`}>
+//                                 <>  <h3 className="Level" key={`displayName--${severityItem.severityDisplayName}`}><b>{severityItem.severityDisplayName}</b></h3>
+                                    
+//                                     <p className="Description" key={`description--${severityItem.description}`}>
+//                                     <b>Common Symptoms: </b>{severityItem.description}
+//                                     </p>
+
+//                                     {
+//                                      severityItem.restrictions.length > 0 ?
+//                                           <b><i>This allergy level affects </i></b>
+//                                                 <p className="people__Allergy2" key={`restrictions--${severityItem.restrictions}`}>
+                                                
+//                                                 {severityItem.restrictions.map((r) => {return r.friend.name}).join(", ")} </p>
+//                                                 : null 
+//                                      }
+
+//                                      </>
+//                             </div>
+//                         )
+//                     }
+//                 )
+//             }
+
+//         </>
+//     );
+
+// }
+
     return (
         <>
             <h2 className="allergyForm__title">Understanding Food Allergy Levels</h2>
-            { severityModel.map(
-                    (severityItem) => {
-                        return (
-                            
-                            <div className="Source" key={`severityItem--${severityItem.key}`}>
-                                <>  <h3 className="Level" key={`displayName--${severityItem.severityDisplayName}`}><b>{severityItem.severityDisplayName}</b></h3>
-                                    
-                                    <p className="Description" key={`description--${severityItem.description}`}>
-                                    <b>Common Symptoms: </b>{severityItem.description}
-                                    </p>
-                                    <b><i>This allergy level affects </i></b>
-                                    <p className="people__Allergy2" key={`restrictions--${severityItem.restrictions}`}>
-                                    
-                                     {severityItem.restrictions.map((r) => {return r.friend.name}).join(", ")} </p> 
-                                       
-                                </>
+            {severityModel.map(
+                (severityItem) => {
+                    return (
+
+                        <div className="Source" key={`severityItem--${severityItem.key}`}>
+                            <h3 className="Level" key={`displayName--${severityItem.severityDisplayName}`}><b>{severityItem.severityDisplayName}</b></h3>
+
+                            <p className="Description" key={`description--${severityItem.description}`}>
+                                <b>Common Symptoms: </b>{severityItem.description}
+                            </p>
+
+                            <div className="row">
+                                { //Check if message failed
+                                    (severityItem.restrictions.length > 0)
+                                        ? <div> This allergy level affects
+                                            <p className="people__Allergy2" key={`restrictions--${severityItem.restrictions}`}>
+
+                                                {severityItem.restrictions.map((r) => { return r.friend.name }).join(", ")} </p>
+                                        </div>
+                                        : null
+                                }
                             </div>
-                        )
-                    }
-                )
+
+                        </div>
+                    )
+                }
+            )
             }
 
         </>
     );
 
 }
+
 
 
