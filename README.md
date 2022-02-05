@@ -6,7 +6,7 @@ PRIMARY FEATURES:
 The user can register and login with an email and a password.
 The user can create a friend/family members food profile.
 The user can manually assign a food to a profile.
-The user can assign a food severity level to a profile.
+The user can assign a food severity level to a profile and get information on food severity levels on the severity levels tab.
 The user can delete a profile on a page.
 
 TARGET AUDIENCE:
