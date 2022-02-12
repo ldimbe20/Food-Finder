@@ -52,7 +52,7 @@ export const FriendForm = () => {   //restrictionForm is a component to gather i
                         placeholder="Profile Name Here"
                         onChange={ //onChange is like an event listener that listens for a change and records it- we are listening for the change in description here
                             (evt) => {
-                                const copy = { ...friendName }     //using object spread operator to copy the initual state
+                                const copy = { ...friendName }     //using object spread operator to copy the initial state
                                 copy.name = evt.target.value  //making the new description = the value of someone typing into the description field
                                 setFriendName(copy)
                             }
