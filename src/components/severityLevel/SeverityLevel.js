@@ -9,8 +9,6 @@ import "./SeverityLevel.css"
 export const Severities = () => {
     const loggedInId = parseInt(localStorage.getItem("food_customer"));
     const [severityModel, setSeverityModel] = useState([])
-    const [severityLevels, setSeverityLevels] = useState([])
-    const [friendFoodRestriction, setFriendFoodRestriction] = useState([])
     
 
 
@@ -21,18 +19,13 @@ export const Severities = () => {
             fetch("http://localhost:8088/friendFoodRestrictions?_expand=friend&_expand=severityLevel")
                 .then(res => res.json())
                 .then((data) => { 
-                    // console.log("friendFoodRestrictions");
-                    // console.log(data);
-                    setFriendFoodRestriction(data);
                     fetch("http://localhost:8088/severityLevels")
                         .then(resSeverity => resSeverity.json())
                         .then((dataSeverity) => {
-                            setSeverityLevels(dataSeverity);
-
-                           //!create new data that includes restrictions that filter food restrictions by if user is logged in and by food severity level
-                           console.log("friendFoodRestrictions", friendFoodRestriction)
-                    
-                           setSeverityModel(dataSeverity.map((severityLevel) => {
+                        //setting state for severityModel that adds new restriction key. Restriction key holds userId if logged in and severityLevelId if it equals severityLevel.id
+                        //severityLevel.id is taken from severityLevels data table
+                        //severityLevelId is taken from severityModel state above
+                          setSeverityModel(dataSeverity.map((severityLevel) => {
                                 return {
                                     key: severityLevel.id,
                                     severityId: severityLevel.id,
@@ -49,42 +42,7 @@ export const Severities = () => {
         },
         []
     )
-
-//     return (
-//         <>
-//             <h2 className="allergyForm__title">Understanding Food Allergy Levels</h2>
-//             { severityModel.map(
-//                     (severityItem) => {
-//                         return (
-                            
-//                            <div className="Source" key={`severityItem--${severityItem.key}`}>
-//                                 <>  <h3 className="Level" key={`displayName--${severityItem.severityDisplayName}`}><b>{severityItem.severityDisplayName}</b></h3>
-                                    
-//                                     <p className="Description" key={`description--${severityItem.description}`}>
-//                                     <b>Common Symptoms: </b>{severityItem.description}
-//                                     </p>
-
-//                                     {
-//                                      severityItem.restrictions.length > 0 ?
-//                                           <b><i>This allergy level affects </i></b>
-//                                                 <p className="people__Allergy2" key={`restrictions--${severityItem.restrictions}`}>
-                                                
-//                                                 {severityItem.restrictions.map((r) => {return r.friend.name}).join(", ")} </p>
-//                                                 : null 
-//                                      }
-
-//                                      </>
-//                             </div>
-//                         )
-//                     }
-//                 )
-//             }
-
-//         </>
-//     );
-
-// }
-
+//Renders info to DOM
     return (
         <>
             <h2 className="allergyForm__title">Understanding Food Allergy Levels</h2>
@@ -100,7 +58,7 @@ export const Severities = () => {
                             </p>
 
                             <div className="row">
-                                { //Check if message failed
+                                { 
                                     (severityItem.restrictions.length > 0)
                                         ? <div> This allergy level affects
                                             <p className="people__Allergy2" key={`restrictions--${severityItem.restrictions}`}>

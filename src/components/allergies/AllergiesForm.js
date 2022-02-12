@@ -19,12 +19,12 @@ export const AllergiesForm = () => {   //AllergyForm is a component that renders
         evt.preventDefault()
         const newAllergy = {  //creating an object to save 
             foodRestrictionName: foodRestrictionName.description,  //getting information form state 
-            friendId: friends.pop().id,   
+            friendId: friends.pop().id,  //had to use POP to that friendId matches the id of friends that is bought over 
             severityLevelId: parseInt(severityId.id),
             treatment: treatment.description
         } //we want to send above object to API
         
-        // const friendId = friends.pop() 
+       
 
         const fetchOption = {
             method: "POST", //posting to the API using Post method
@@ -122,7 +122,7 @@ export const AllergiesForm = () => {   //AllergyForm is a component that renders
                             placeholder="If allergy occurs add treatment "
                             onChange={ //onChange is like an event listener that listens for a change and records it- we are listening for the change in description here
                                 (evt) => {
-                                    const copy = { ...treatment }     //using object spread operator to copy the initual state
+                                    const copy = { ...treatment }     //using object spread operator to copy the initial state
                                     copy.description = evt.target.value  //making the new description = the value of someone typing into the description field
                                     setTreatment(copy)
                                 }
