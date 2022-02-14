@@ -17,6 +17,7 @@ GETTING STARTED:
 Clone this repository and change to the workspace directory in the terminal
 
 git clone git@github.com:ldimbe20/Food-Finder.git
+
 -cd into food-finder 
 
 Access the data-see link below and follow README
