@@ -14,23 +14,22 @@ The target audience is anyone who who needs to keep track of multiple people wit
 
 GETTING STARTED:
 
-Installation
+Clone this repository and change to the workspace directory in the terminal
 
-Clone this repository and change to the workspace directory in the terminal.
+git clone git@github.com:ldimbe20/Food-Finder.git
+-cd into food-finder 
 
-git clone git@github.com:ldimbe20/Food-Finder.git
-
-cd into food-finder
-Launch the application
-npm install
-npm start
-
-
--Access the data
-
+Access the data-see link below and follow README
 https://github.com/ldimbe20/Food-Finder-Api
 
-json-server -w database.json -p 8088
+
+Launch the application 
+-npm install 
+-npm start
+
+Create own user or login into register user using lauren@gmail.com
+
+
 
 
 
