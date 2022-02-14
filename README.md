@@ -19,6 +19,7 @@ Installation
 Clone this repository and change to the workspace directory in the terminal.
 
 git clone git@github.com:ldimbe20/Food-Finder.git
+
 cd into food-finder
 Launch the application
 npm install
