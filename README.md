@@ -16,7 +16,8 @@ GETTING STARTED:
 
 Installation
 
-Clone this repository and change to the directory in the terminal.
+Clone this repository and change to the workspace directory in the terminal.
+
 git clone git@github.com:ldimbe20/Food-Finder.git
 -cd into food-finder
 Launch the application
@@ -28,6 +29,21 @@ npm start
 https://github.com/ldimbe20/Food-Finder-Api
 
 json-server -w database.json -p 8088
+
+Clone this repository
+cd into the directory
+Install the necessary packages:
+npm install
+npm i --save react react-dom react-router-dom reactstrap
+npm i --save bootstrap
+npm install json-server
+mkdir api and touch database.json to create the database
+Copy and paste sample api below into the database
+https://github.com/ldimbe20/Food-Finder-Api
+Run json-server -w database.json -p 8088 from the api directory
+In a separate terminal, run npm start from the repository directory
+After registering for the app, a user can navigate to (a) The Name Form to create a friend or family members profile. (b) Navigate to AllergyForm to assign that friend or family member an allergy, the severity of that allergy, the treatment of that allergy. From here you will be directed to a list of profiles that list food restrictions. (C) From the profile component you will have the ability to delete a profile. (D) The user can also navigate to the Severity Level tab for a breath description of food severities and who is affected by each of them.
+
 
 
 
