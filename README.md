@@ -26,6 +26,7 @@ npm start
 
 
 -Access the data
+
 https://github.com/ldimbe20/Food-Finder-Api
 
 json-server -w database.json -p 8088
